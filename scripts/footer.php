@@ -2,7 +2,7 @@
 	//Name: SPT
 	//Version: 1.0
 	//Mayo 2016
-	//Plataformas HouseMedia 
+	//Plataformas HouseMedia
 ?>
 <!-- Footer Inicia-->
 <!--<div id="footer">

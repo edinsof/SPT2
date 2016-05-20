@@ -1,10 +1,10 @@
 
 <?php 
 	//Login Page
-	//Name: Dean O Halloran
-	//Version: 1.1
-	//Decemeber 2014
-	//Image Sharing Web Application 
+	//Name: SPT
+	//Version: 1.0
+	//Mayo 2016
+	//Plataformas HouseMedia
 	//Starting session
 	session_start();
 

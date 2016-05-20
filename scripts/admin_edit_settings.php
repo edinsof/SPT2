@@ -1,8 +1,8 @@
 <?php
-	//Name: Dean O Halloran
-	//Version: 1.1
-	//Decemeber 2014
-	//Image Sharing Web Application 
+	//Name: SPT
+	//Version: 1.0
+	//Mayo 2016
+	//Plataformas HouseMedia
 
 	//If Session username is Set
 	if (isset($_SESSION['username']) && $_SESSION['username']=="admin") 
