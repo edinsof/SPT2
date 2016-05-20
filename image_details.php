@@ -82,12 +82,11 @@
 						<span class='st_pinterest_large' displayText='Pinterest'></span>
 				</div><!--Closing Social Links-->
 				<div class="product-details"><!--Opening Image Details-->
-					<h3>Image Details</span></h3>
+					<h3>Detalles de Imagen</span></h3>
 					<ul>
 						<li>Title:</span> <?php echo $title; ?></li>
-						<li><span>Date:</span> <?php echo date('d-m-Y', strtotime($date_added));?></li>
-						<li><span>Type:</span> <?php echo $category; ?></li>
-						<?php echo $ratings; ?>
+						<li><span>Fecha:</span> <?php echo date('d-m-Y', strtotime($date_added));?></li>
+						<li><span>Categoria:</span> <?php echo $category; ?></li>
 				</div><!--Closing Image Details -->
 				
 				<div class="product-info"><!--Opening product-info-->
