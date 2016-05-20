@@ -118,19 +118,6 @@
 
 
 				</div><!--Closing product-info-->
-
-				
-				<div class="rating-container">
-					<h3>Pic Ratings</h3>
-					<?php echo $totalnumber; ?>
-					<input type="hidden" name="vid" id="picid" value="<?php echo $picid; ?>" />	
-					<input type="hidden" name="id" id="userid" value="<?php echo $_SESSION['id']; ?>" />
-					<input type="hidden" name="vtype" id="vtype" value="<?php echo $mediatype; ?>" />
-					<div class="stars">
-						<?php include("scripts/starchk.php"); ?><!-- Navigation External File-->
-						<script type="text/javascript">hoverchk(); staravgresults();</script>		
-					</div>	
-				</div>
 			</div><!--Closing product--> 
 			
 		</div> <!--Closing Container -->
