@@ -111,11 +111,6 @@
 					
 					<?php include("scripts/member_settings.php"); ?><!-- Logo External File-->
 					<?php include("scripts/admin_edit_settings.php"); ?><!-- Logo External File-->                    
-					
-					<div class="outer-comment"><!--opening outer comments-->  
-						<?php include("scripts/comments.php"); ?><!--- Display Comments External File-->
-					</div><!--Closing outer comments-->  
-
 
 				</div><!--Closing product-info-->
 			</div><!--Closing product--> 
