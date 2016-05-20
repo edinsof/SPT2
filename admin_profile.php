@@ -65,7 +65,7 @@
 		<div id="container"><!--Opening Container -->
 			<div class="members"><!--Opening members-->
 				<div class="members-info"><!--Opening members-Info-->
-					<div class="members-title"><h2><?php echo $username; ?>'s Profile</h2></div><!--members-Title-->
+					<div class="members-title"><h2>Perfil - <?php echo $username; ?></h2></div>
 					<p></p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
