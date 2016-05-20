@@ -1,18 +1,18 @@
 <?php
-	//Name: Dean O Halloran
-	//Version: 1.1
-	//Decemeber 2014
-	//Image Sharing Web Application 
+	//Name: SPT
+	//Version: 1.0
+	//Mayo 2016
+	//Plataformas HouseMedia 
 	
 	//MySQLI Database Connection
 	//Host Connection for the MySQLI database
 	$db_host = "localhost"; 
 	//Username for the MySQLI database 
-	$db_username = "housygxd_stp";  
+	$db_username = "usuario";  
 	//Password for the MySQLI database
-	$db_pass = "MXTha#z=tBcM";  
+	$db_pass = "oinkoink";  
 	//Name for the MySQLI database
-	$db_name = "housygxd_stp"; 
+	$db_name = "stp2"; 
 
 	//Run the MySQLI Database Connection with php variables  
 	$conn = mysqli_connect($db_host,$db_username,$db_pass) or die ("could not connect to the mysql server");
