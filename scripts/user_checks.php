@@ -61,7 +61,7 @@
 		elseif (isset($url)) 
 		{
 		
-			$usertype = "Register";
+			$usertype = "Registro";
 			//Store html code in variable when user is not logged in 
 			$userchoice = '<a href="register.php?type=register&url='.$url.'">' . $usertype . '</a>';					
 		}

@@ -18,7 +18,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Pix Planet</title>
+		<title>By HouseMedia</title>
 		<link rel="stylesheet" href="css/style.css" type="text/css"/> 		
         <link rel="stylesheet" href="css/banner.css" type="text/css"/>
 		<link rel="stylesheet" href="css/search.css" type="text/css"/>
@@ -55,7 +55,7 @@
 				$lftnum_check = mysqli_num_rows($lftresult);
 				if ($lftnum_check == 0) 
 				{
-					echo "<h3>No picture's Available</h3>";
+					echo "<h3>Sin Imagenes</h3>";
 				}
 				else 
 				{
