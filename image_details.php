@@ -54,8 +54,7 @@
 		<script type="text/javascript" src="js/lightbox.js"></script>
 		<script type="text/javascript" src="js/Validation.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
-		<script  async type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>	
-		<script  async type="text/javascript">stLight.options({publisher: "70e80440-0f9f-48f7-ae4f-037a328c3489", doNotHash: false, doNotCopy: false, hashAddressBar: false}); </script>			
+		
 	</head>
 	<body>
 		<?php echo $msgerror; ?><!-- Echo Error Message-->
@@ -73,14 +72,9 @@
 			<div class="product"><!--Opening Review-->
 				<div class="product-image"><!--Opening product-Image-->
 					<a href="<?php echo $upload_path.$fullimage; ?>" rel="lightbox" title="<?php echo $title; ?>">
-					<img src="<?php echo $upload_path.$thumb; ?>" alt="<?php echo $title; ?>" width="140" height="200" /></a>
+					<img src="<?php echo $upload_path.$fullimage; ?>" alt="<?php echo $title; ?>" width="140" height="200" /></a>
 				</div><!--Closing product-Image-->
-				<div class="social-links"><!--Opening Social Links-->
-						<span class='st_facebook_large' displayText='Facebook'></span>
-						<span class='st_twitter_large' displayText='Tweet'></span>
-						<span class='st_googleplus_large' displayText='Google +'></span>
-						<span class='st_pinterest_large' displayText='Pinterest'></span>
-				</div><!--Closing Social Links-->
+	
 				<div class="product-details"><!--Opening Image Details-->
 					<h3>Detalles de Imagen</span></h3>
 					<ul>

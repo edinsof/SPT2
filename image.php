@@ -46,7 +46,7 @@
         </div><!-- End of FullNav-->	
         <div id="container"><!--Start of Container-->
 			<div class="left-column"><!-- Start of Left Column-->
-				<h2>Categories</h2>
+				<h2>Categorias</h2>
 				<?php
 				//Connect To Database
 				include ('db/connect_to_db.php');
@@ -64,13 +64,6 @@
 					}
 				?>
 			</div><!-- End of Left Column-->
-			<div class="right-column2"><!-- Start of Right Column-->
-				 <div id="Searchbox">
-				 	<?php include("scripts/searchbox.php"); ?>
-				</div> 
-				<div id="rightcol"></div>
-			</div><!-- End of Right Column--> 
-			
         </div><!-- End of Container-->
 			<?php 
 

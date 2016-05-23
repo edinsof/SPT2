@@ -28,7 +28,7 @@
 		//If the username is admin
 		if ($username == 'admin')
 		{
-			$navlinks = '<h3><a href="logout.php">Log Out</a>
+			$navlinks = '<h3><a href="logout.php">Salir</a>
 						<a href="admin_profile.php">' . $username . '</a></h3>';
 		}
 		//else Do This
@@ -36,7 +36,7 @@
 		{
 			//Store html code in variable when user logged in 
 			$navlinks = '<h3><a href="logout.php">Log Out</a>
-						<a href="member_profile.php?id=' . $userid . '">Welcome ' . $firstname . '</a></h3>';			
+						<a href="member_profile.php?id=' . $userid . '">Bienvenido ' . $firstname . '</a></h3>';			
 		}
 	}
 	//If Nobody is logged in Display This

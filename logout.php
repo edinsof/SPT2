@@ -29,7 +29,7 @@
 	session_destroy();
 	
 	// Redirect to Index Page
-	$msg='<script type="text/javascript">alert("Your Successfully Logged Out, Thank you for visiting '.$firstname.'");</script>';
+	$msg='<script type="text/javascript">alert("Ha salido con exito '.$firstname.'");</script>';
 	session_start();
 	$_SESSION['error'] = $msg;
 	$_SESSION['cat'] = $cat;

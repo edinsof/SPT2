@@ -6,19 +6,14 @@
 	
 	//Starting session
 	session_start();
-	
 	//Get request type e.g. Update, delete, etc
 	$type = $_REQUEST['type'];
-	
 	//Get Last URL
 	$newurl = $_REQUEST['newurl'];
-	
 	//Get Last URL before Edit Page or Member page
 	$url = $_REQUEST['url'];
-	
 	//Set msg variable
 	$msg = '<script type="text/javascript">alert("';	
-	
 	//Edit Member Details
 	if ($type == "useredit") 
 	{
@@ -99,10 +94,10 @@
 			//Connect To Database
 			include ('db/connect_to_db.php');
 			//Configuration - Your Options
-			$file_types_permitted = array('.jpg','.gif','.bmp','.png'); // These will be the types of file and will be checked.
+			$file_types_permitted = array('.jpg','.jpeg','.gif','.bmp','.png'); // These will be the types of file and will be checked.
 			//New Thumb Sizes
-			$modwidth="160";
-			$modheight="240";
+			$modwidth="300";
+			$modheight="100";
 			
 			$filename = $_FILES['image']['name']; // Get the name of the file (including file extension).
 			$filetype = $_FILES['image']['type']; // Get the type of the file (including file extension).
@@ -120,25 +115,20 @@
 				$cateory = $_POST['category'];
 				$plot = $_POST['plot'];				
 			}
-			
 			//$_POST variables			
 			$title = trim($title);				
 			//Replace any item in array with a dash	
-			$newtitle = str_replace(array(' ', ',', '-', '!','/','\',|'), '_', $title);
+			$newtitle =  $filename;
+			//Extencion
+			
+			//$newtitle = str_replace(array(' ', ',', '-', '!','/','\',|'), '_', $title);
 			//Replace any item in array with a dash
-			
-			
 			$category = trim($category);	
-			
-			$plot = mysqli_escape_string($conn, $plot);		
-			
-				
+			$plot = mysqli_escape_string($conn, $plot);			
 			//Get Extension of File
 			$extension = substr($filename, strpos($filename,'.'), strlen($filename)-1); // Get the file extension from the current filename.
-			
 			//Set Upload Directory Path (including sub Directoties)
-			$upload_path = './pictures/'.$newtitle.'/'; // The place the files will be uploaded to (a directory).
-	
+			$upload_path = 'uploads/'.$category.'/'; // The place the files will be uploaded to (a directory).
 			//Check if the filetype is allowed, if not DIE and inform the user.
 			if(!in_array($extension,$file_types_permitted)) 
 			{
@@ -157,35 +147,33 @@
 				//Upload the file to your upload path.
 				if(move_uploaded_file($_FILES['image']['tmp_name'],$upload_path . $filename)) 
 				{
+					$fecha = date("F-j-Y-H-i-s");
+					$separar = "-";
 					$oldfilename = $upload_path.$filename;
-					$newfilename = $upload_path.$newtitle.$extension;
+					$newfilename = $upload_path.$fecha.$separar.$newtitle;
 					
-					$changedfile = $newtitle.$extension;
-					$filename = $changedfile;
+					//$changedfile = $newtitle.$extension;
+					//fecha a imagenes
+					
+					$changedfile = $newtitle;
+					$filename = "$fecha-$changedfile";
 					rename($oldfilename, $newfilename);
-					
 					//Let's set the thumbnail
 					$thumb = "tb_".$filename;
-				
 					//Create a new image from file
-					$sourceimg = imagecreatefromjpeg($upload_path.$filename);
+					$sourceimg = imagecreatefromjpeg($upload_path.$fecha.$filename);
 					//Finds X and Y of File
 					$width = imagesx($sourceimg);
 					$height = imagesy($sourceimg);
-  
 					//Create a new true color image
 					$destination = imagecreatetruecolor($modwidth, $modheight);
-  
 					//Creates a Copy of source file and saves to new destination file
 					imagecopyresampled($destination, $sourceimg, 0, 0, 0, 0, $modwidth, $modheight, $width, $height);
-  
 					//create the thumbnail image to the destination
 					imagejpeg($destination, $upload_path.$thumb);
-					
 					//Destroying Images Created and freeing up any memory associated with images
 					imagedestroy($sourceimg);
 					imagedestroy($destination);
-					
 					//Insert variables to table in database
 					$insert = mysqli_query($conn,"INSERT INTO picture(title, fullimage, upload_path, ext, category, thumb, plot, date_added) VALUES
 					('".$title."','".$filename."','".$upload_path."','".$extension."',
@@ -338,7 +326,7 @@
 			}	
 			
 			$oldfolder = $_POST["oldfolder"];
-			$newupload_path = './pictures/'.$newtitle.'/'; //The New Upload Folder
+			$newupload_path = './uploads/'.$newtitle.'/'; //The New Upload Folder
 			
 			//Set File Paths
 			$filename = $oldfolder.$fullimage;

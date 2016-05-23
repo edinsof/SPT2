@@ -47,8 +47,8 @@
 				<th>Product</th>
 				<th>Type</th>
 				<th>Format</th>
-				<th>Edit</th>
-				<th>Delete</th>						
+				<th>Editar</th>
+				<th>Eliminar</th>						
 			</tr>
 			<?php 
 			//Connect To Database

@@ -71,7 +71,7 @@
   <div id="submit-area"><!-- Opening submit Area -->
     <form method="post" action="image_status.php" name="newProductForm" enctype="multipart/form-data">
       <label for="title">Nombre: </label>
-      <input type="text" name="title" id="title" placeholder="<?php echo $fname; ?>-<?php echo $lname; ?>-<?php echo $_SERVER['REMOTE_ADDR']; ?>-<?php echo date("Y-m-d"); ?>" readonly/>
+      <input type="text" name="title" id="title" placeholder="<?php echo $fname; ?>_<?php echo date("Y-m-d"); ?>"/>
       <label for="category">Categoria</label>
       <select name="category">
         <option value="medellin">Programacion DJ's Medellin</option>
@@ -82,7 +82,7 @@
         <option value="queestapasando">Que esta Pasando</option>
       </select>
       <label for="plot">Anotaciones</label>
-      <textarea name="plot" cols="" rows="4"></textarea>
+      <input name="plot" value="<?php echo $fname; ?>_<?php echo $lname; ?>_<?php echo $_SERVER['REMOTE_ADDR']; ?>_<?php echo date("Y-m-d"); ?>" readonly/>
       <label for="image">Imagen:</label>
       <input type="file" name="image" id="image"  />
       <input type="hidden" name="type" value="<?php echo $type; ?>" />

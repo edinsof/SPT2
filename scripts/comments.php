@@ -38,7 +38,7 @@
 			//Echo comment-rating Div Tag Opening
 			echo "<div id='comment-rating'>";
 			//Use echo to print out ratings and username and date
-			echo "<span>".$username."</span> Posted on <span> ".date('d-m-Y', strtotime($date))."<br>";
+			echo "<span>".$username."</span> Subido el <span> ".date('d-m-Y', strtotime($date))."<br>";
 			//Echo comment-rating Div Tag Closing
 			echo "</div><br/>";
 			//Echo maincomment Div Tag Opening
@@ -56,41 +56,4 @@
 	
 	mysqli_close($conn);	
 	
-	// Check If user is logged in
-	//If Session ID is Set
-	if (isset($_SESSION['id'])) 
-	{
-	
-		$commentform = "newcomment";
-		$new_url = "";
-		?>	
-		<a name="comment"></a><!-- Comments Form Achor Tag --> 
-		<div id="commentform"><!-- Opening Commentform Div -->
-			<!-- Opening CommentsForm Form -->
-			<form method="post" action="image_status.php" name="CommentsForm" onsubmit="return ValidateCommentForm();">
-				<label for="comments">Comment:</label><br/>
-				<textarea name="comments" rows="20" cols="20"></textarea><br />
-				<input type="hidden" name="vid" value="<?php echo $picid; ?>" />
-				<input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>" />
-				<input type="hidden" name="type" value="<?php echo $commentform; ?>" />
-				<input type="hidden" name="url" value="<?php echo $url; ?>" />
-				<input type="hidden" name="newurl" value="<?php echo $new_url; ?>" />			
-				<input type="submit" name="submit" value="Post" class="submit-button" />
-			</form><!-- End of CommentsForm Form -->
-		</div><!-- Closing Commentform Div -->
-		<br />
-
-		<?php
-	}
-	//Else Session ID is  not Set
-	else 
-	{
-		?>
-		<!-- Check if Logged In-->
-		<div class="error-comment">
-			<h3>Login To Add Comment</h3><br />
-			<p>You must be logged in to write a comment</p>
-		</div>
-		<?php
-	} 
 ?>

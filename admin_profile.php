@@ -78,9 +78,9 @@
 					<ul id ="admin-button-table">
 						<li><h3><a href="edit_member_details.php?uid=<?php echo $id; ?>&url=<?php echo $url; ?>&type=useredit" target="_self"><button>Editar Mis Datos</button></a></h3></li>
 						<li><h3><a href="new_image.php?type=newimage&url=<?php echo $url; ?>" target="_self"><button>Subir Imagen</button></a></h3></li>			
-						<li><h3><a href="register.php?type=register&url=<?php echo $url; ?>" target="_self"><button>Registrar Usuario</button></a></h3></li>						
-	                    <li><h3><a href="show_members.php" target="_self"><button>Ver Usuario</button></a></h3></li>
-						<li><h3><a href="show_products.php" target="_self"><button>Ver Imagenes</button></a></h3></li>
+						<li><h3><a href="register.php?type=register&url=<?php echo $url; ?>" target="_self"><button>Agregar Usuario</button></a></h3></li>						
+	                    <li><h3><a href="show_members.php" target="_self"><button>Ver Usuarios</button></a></h3></li>
+						<li><h3><a href="show_imagenes.php" target="_self"><button>Ver Imagenes</button></a></h3></li>
 					</ul>			
 				</div><!--Closing members-Info-->
 			</div><!--Closing members-->   

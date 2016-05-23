@@ -51,7 +51,7 @@
 		else 
 		{
 			// Redirect to Index Page
-			$msg='<script type="text/javascript">alert("Incorrect Username or Password");</script>';
+			$msg='<script type="text/javascript">alert("Usuario o contraseña incorrecta");</script>';
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL 
 			header( 'refresh: 0; url='.$url);
