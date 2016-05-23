@@ -28,8 +28,7 @@
 		//If the username is admin
 		if ($username == 'admin')
 		{
-			$navlinks = '<h3><a href="logout.php">Salir</a>
-						<a href="admin_profile.php">' . $username . '</a></h3>';
+			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile.php">' . $username . '</a>';
 		}
 		//else Do This
 		elseif ($username != 'admin')

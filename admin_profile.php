@@ -39,37 +39,59 @@
 ?>
 <?php include("scripts/head.php"); ?>
 
-	<body>
-    <div id="wrapper">
-		<?php echo $msgerror; ?>
-        <?php include("scripts/user_navigation.php"); ?>
-	
-		<div id="container"><!--Opening Container -->
-			<div class="members"><!--Opening members-->
-				<div class="members-info"><!--Opening members-Info-->
-					<div class="members-title"><h2>Perfil - <?php echo $username; ?></h2></div>
-					<p></p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<h3><span>Nombre:</span> <?php echo $fname." ".$lname; ?></h3>	
-					<h3><span>Usuario:</span> <?php echo $username; ?></h3>
-					<h3><span>Email:</span><?php echo $email; ?></h3>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>					
-					<ul id ="admin-button-table">
-						<li><h3><a href="edit_member_details.php?uid=<?php echo $id; ?>&url=<?php echo $url; ?>&type=useredit" target="_self"><button>Editar Mis Datos</button></a></h3></li>
-						<li><h3><a href="new_image.php?type=newimage&url=<?php echo $url; ?>" target="_self"><button>Subir Imagen</button></a></h3></li>			
-						<li><h3><a href="register.php?type=register&url=<?php echo $url; ?>" target="_self"><button>Agregar Usuario</button></a></h3></li>						
-	                    <li><h3><a href="show_members.php" target="_self"><button>Ver Usuarios</button></a></h3></li>
-						<li><h3><a href="show_imagenes.php" target="_self"><button>Ver Imagenes</button></a></h3></li>
-					</ul>			
-				</div><!--Closing members-Info-->
-			</div><!--Closing members-->   
-		</div><!--Closing Container -->
-		<div class="full-footer"><!--Full Footer-->
-			<?php include("scripts/footer.php"); ?><!-- Footer External File-->  
-		</div><!--End of Full Footer-->
+<body>
+<div id="wrapper"> <?php echo $msgerror; ?>
+  <?php include("scripts/user_navigation.php"); ?>
+  <nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="main-menu">
+        <li><a class="active-menu"  href="index.php"><i class="fa fa-home fa-3x"></i> Home</a> </li>
+        <li><a href="edit_member_details.php?uid=<?php echo $id; ?>&url=<?php echo $url; ?>&type=useredit"><i class="fa fa-user fa-3x"></i> Editar Mis Datos</a></li>
+        <li><a href="new_image.php?type=newimage&url=<?php echo $url; ?>"><i class="fa fa-upload fa-3x"></i> Subir Imagen</a></li>
+        <li><a href="register.php?type=register&url=<?php echo $url; ?>"><i class="fa fa-user-plus fa-3x"></i> Agregar Usuario</a></li>
+        <li><a href="show_members.php"><i class="fa fa-users fa-3x"></i> Ver Usuarios</a></li>
+        <li><a href="show_imagenes.php"><i class="fa fa-camera fa-3x"></i> Ver Imagenes</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Perfil</h2>
+          <h5><?php echo $username; ?></h5>
         </div>
-	</body>
+      </div>
+      <!-- /. ROW  -->
+      <hr>
+      <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-pencil-square-o"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Nombre</p>
+              <p class="text-muted"><?php echo $fname." ".$lname; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-green set-icon"> <i class="fa fa-user"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Usuario</p>
+              <p class="text-muted"><?php echo $username; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-blue set-icon"> <i class="fa fa-envelope"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Email</p>
+              <p class="text-muted"><?php echo $email; ?></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

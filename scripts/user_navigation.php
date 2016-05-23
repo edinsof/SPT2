@@ -14,8 +14,5 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Hola, <?php echo $nombre; ?>&nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a></div>
+font-size: 16px;"> Hola, <?php echo $nombre; ?>&nbsp; <?php echo $navlinks; ?> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a> </div>
 </nav>
-<!-- User Navigation External File -->
-<div id="custom-login"> <?php echo $navlinks; ?> </div>
-<!-- Closing Custom Login --> 
