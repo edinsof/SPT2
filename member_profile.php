@@ -39,19 +39,7 @@
 	mysqli_close($conn);
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title><?php echo $username; ?>'s Profile</title>	
-		<link rel="stylesheet" href="css/members.css" type="text/css">
-		<link rel="stylesheet" href="css/style.css" type="text/css"/> 		
-        <link rel="stylesheet" href="css/banner.css" type="text/css"/>
-		<link rel="stylesheet" href="css/search.css" type="text/css"/>             
-		<link rel="stylesheet" href="css/menu.css" type="text/css" />
-		<link rel="stylesheet" href="css/footer.css" type="text/css"/>
-		<script type="text/javascript" src="js/hint-textbox.js"></script>
-		<script type="text/javascript" src="js/Validation.js"></script>
-	</head>
+<?php include("scripts/head.php"); ?>
 	<body>
 		<?php echo $msgerror; ?><!-- Echo Error Message-->
         <div class="fullnav"><!--FullNav-->

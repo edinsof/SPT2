@@ -37,31 +37,13 @@
 	}
 	mysqli_close($conn);
 ?>
+<?php include("scripts/head.php"); ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>Administrador</title>
-		<link rel="stylesheet" href="css/members.css" type="text/css">
-		<link rel="stylesheet" href="css/style.css" type="text/css"/> 		
-        <link rel="stylesheet" href="css/banner.css" type="text/css"/>
-		<link rel="stylesheet" href="css/search.css" type="text/css"/>             
-		<link rel="stylesheet" href="css/menu.css" type="text/css" />
-		<link rel="stylesheet" href="css/footer.css" type="text/css"/>
-		<script type="text/javascript" src="js/hint-textbox.js"></script>
-		<script type="text/javascript" src="js/Validation.js"></script>
-	</head>
 	<body>
-		<?php echo $msgerror; ?><!-- Echo Error Message-->
-        <div class="fullnav"><!--FullNav-->
-            <div class="logo"><?php include("scripts/logo.php"); ?><!-- Logo External File--></div>
-            <div class="centernav"><!--CenterNav-->
-				 <?php include("scripts/menu.php"); ?><!-- Navigation External File-->
-				 <div id="loginNav">
-				 	<?php include("scripts/user_navigation.php"); ?>
-				</div> 
-			</div><!-- End of CenterNav-->
-        </div><!-- End of FullNav-->			
+    <div id="wrapper">
+		<?php echo $msgerror; ?>
+        <?php include("scripts/user_navigation.php"); ?>
+	
 		<div id="container"><!--Opening Container -->
 			<div class="members"><!--Opening members-->
 				<div class="members-info"><!--Opening members-Info-->
@@ -88,5 +70,6 @@
 		<div class="full-footer"><!--Full Footer-->
 			<?php include("scripts/footer.php"); ?><!-- Footer External File-->  
 		</div><!--End of Full Footer-->
+        </div>
 	</body>
 </html>
