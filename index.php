@@ -34,7 +34,6 @@
 		<?php echo $msgerror; ?><!-- Echo Error Message-->
       
         <div class="fullnav"><!--FullNav-->
-            <div class="logo"><?php include("scripts/logo.php"); ?><!-- Logo External File--></div>
             <div class="centernav"><!--CenterNav-->
 				 <?php include("scripts/menu.php"); ?><!-- Navigation External File-->
 				 <div id="loginNav">
@@ -43,47 +42,13 @@
 			</div><!-- End of CenterNav-->
         </div><!-- End of FullNav-->
 		<div id="container"><!-- Start of Container-->
-			<div class="left-column"><!-- Start of Left Column-->
-				<h2>Most Popular</h2>
+			
+			<div class="right-column"><!-- Start of Right Column-->
 				<?php
 				//Set Number of Film to empty
 				$nums = "";
 				//Connect To Database
 				include ('db/connect_to_db.php');
-	             //Search the Database to check to see if the image in the database column matches the select image and order it by descending order
-				$lftresult = mysqli_query($conn,"SELECT pictureID,title,fullimage,upload_path,thumb FROM picture ORDER BY date_added DESC LIMIT 10");	
-				$lftnum_check = mysqli_num_rows($lftresult);
-				if ($lftnum_check == 0) 
-				{
-					echo "<h3>Sin Imagenes</h3>";
-				}
-				else 
-				{
-					while($leftrow = mysqli_fetch_array($lftresult))
-					{ 
-						//Increment Number of pictures
-						$nums++;
-						$picid = $leftrow["pictureID"];
-						$title = $leftrow["title"];
-						$fullimage = $leftrow["fullimage"];
-						$upload_path = $leftrow["upload_path"]; 
-						$thumb = $leftrow["thumb"];
-						
-						?>
-						<div class='left-divs-cols'><!--specialoffer-divs-cols-->
-							<?php
-							echo  "<a href='image_details.php?vid=".$picid."'><img src=".$upload_path.$fullimage." alt='".$fullimage."' width='120' height='120' title='".$title."' border='0' /></a>";
-							echo  "<h3><a href='image_details.php?vid=".$picid."'></a></h3>";
-							?>
-						</div><!-- End of left-divs-cols-->
-						<?php
-					}
-				}
-				?>
-			</div><!-- End of Left Column-->
-			
-			<div class="right-column"><!-- Start of Right Column-->
-				<?php
 	             //Search the Database to check to see if the image in the database column matches the select image
 				$rghtresult = mysqli_query($conn,"SELECT pictureID,title,fullimage,upload_path,thumb FROM picture ORDER BY title");	
 				$rhtnum_check = mysqli_num_rows($rghtresult);
