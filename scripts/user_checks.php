@@ -28,14 +28,13 @@
 		//If the username is admin
 		if ($username == 'admin')
 		{
-			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile.php">' . $username . '</a>';
+			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';
 		}
 		//else Do This
 		elseif ($username != 'admin')
 		{
 			//Store html code in variable when user logged in 
-			$navlinks = '<h3><a href="logout.php">Log Out</a>
-						<a href="member_profile.php?id=' . $userid . '">Bienvenido ' . $firstname . '</a></h3>';			
+			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="member_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';			
 		}
 	}
 	//If Nobody is logged in Display This
@@ -43,10 +42,10 @@
 	{
 		//Store html code in variable when user is not logged in 
 		$navlinks = '<form action="login.php" method="post" name="LoginForm" onsubmit="return ValidateLoginForm();">
-					<input name="username" value="Username" type="text" class="hintTextbox"/> 
-					<input name="password" value="Password" type="password" class="hintTextbox"/>
+					<input name="username" value="Username" type="text" class="form-control"/> 
+					<input name="password" value="Password" type="password" class="form-control"/>
 					<input type="hidden" name="url" value="'.$url.'" />					
-					<input type="submit" name="Submit" value="login" class="submit-button" />
+					<input type="submit" name="Ingresar" value="login" class="submit-button" />
 					</form>';
 					
 		$comment = "";

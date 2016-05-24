@@ -38,7 +38,7 @@
 			
 			if ($update) 
 			{			
-				$msg .= $username.'s were Successfully Updated';
+				$msg .= $username.' cambios realizados';
 				$msg .='");</script>';				
 				$_SESSION['error'] = $msg;
 				//Redirect back to URL 
@@ -46,7 +46,7 @@
 			}
 			else 
 			{
-				$msg .= $username.'s Records were not Updated, Try Again';
+				$msg .= $username.' no se pudo actualizar, Intente de nuevo';
 				$msg .='");</script>';			
 				$_SESSION['error'] = $msg;
 				//Redirect back to URL
@@ -70,7 +70,7 @@
 		
 		if ($deletequery) 
 		{	
-			$msg .= $old_user.' was Successfully Deleted';
+			$msg .= $old_user.' fue eliminado';
 			$msg .='");</script>';			
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL
@@ -78,7 +78,7 @@
 		}
 		else 
 		{
-			$msg .='Deletion was Unsuccessful Deleted';
+			$msg .='No se pudo eliminar';
 			$msg .='");</script>';			
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL
@@ -132,7 +132,7 @@
 			//Check if the filetype is allowed, if not DIE and inform the user.
 			if(!in_array($extension,$file_types_permitted)) 
 			{
-				die('The file you are trying to upload is not allowed, Not right file type.');
+				die('Este tipo de archivo no esta permitido.');
 			}
 			
 			else 
@@ -184,7 +184,7 @@
 					//Store Last Inserted Id in lastmovieid variable
 					$lastmovieid = $lastid;
 					
-					$msg .='File Successfully Uploaded and '.$title.' is Successfully Added \n';
+					$msg .='Imagen Subida \n';
 					$msg .='");</script>';
 					$_SESSION['error'] = $msg;
 					//Redirect back to URL
@@ -192,7 +192,7 @@
 				} 
 				else 
 				{
-					$msg .='There was an error during the file upload And a problem occurred  with '.$title.'. Please try again \n';
+					$msg .='Error subiendo imagen. Intente de nuevo \n';
 					$msg .='");</script>';					
 					$_SESSION['error'] = $msg;
 					//Redirect back to URL
@@ -214,7 +214,7 @@
 			$numcount = mysqli_num_rows($result);
 			if ($numcount > 0) 
 			{
-				$msg .= $_POST['username'].' Already Exists Try another one';
+				$msg .= $_POST['username'].' Este usuario ya existe';
 				$msg .='");</script>';				
 				$_SESSION['error'] = $msg;
 				//Redirect back to URL
@@ -241,7 +241,7 @@
 			
 				if ($register) 
 				{			
-					$msg .= $username.' was Successfully Registered';
+					$msg .= $username.' fue registrado';
 					$msg .='");</script>';				
 					$_SESSION['error'] = $msg;
 					//Redirect back to URL
@@ -249,7 +249,7 @@
 				}
 				else 
 				{
-					$msg .='Problem occurred  when adding '.$username.'. Please try again';
+					$msg .='Error agregando a '.$username.'. intente de nuevo';
 					$msg .='");</script>';				
 					$_SESSION['error'] = $msg;
 					//Redirect back to URL
@@ -258,44 +258,7 @@
 			}
 		}			
 	}
-	
-	//Add New Comment	
-	elseif ($type == "newcomment") 
-	{
-		if (isset($_POST['submit']))
-		{
-			//Store Inputted Values in Variables 
-			$comment = $_POST['comments'];
-			$username = $_POST['username'];
-			$picid = $_REQUEST['vid'];
-			
-			//Connect To Database
-			include ('db/connect_to_db.php');
-			
-			//Add user information into the database table, Put the values into the column row 
-			$insert = mysqli_query ($conn,"INSERT INTO usercomments (picid, username, date_added, commenttext) VALUES
-			('".$picid."', '".$username."', now(), '".$comment."')") or die(mysqli_error($conn));  
 
-			//If Function to check if the SQL Command was sucessful
-			if ($insert) 
-			{			
-				$msg .= $username.'s Comment was Successfully Added';
-				$msg .='");</script>';				
-				$_SESSION['error'] = $msg;
-				//Redirect back to URL
-				header( 'refresh: 0; url='.$url);
-			}
-			else 
-			{
-				$msg .='Error occurred  when adding Comment';
-				$msg .='");</script>';				
-				$_SESSION['error'] = $msg;
-				//Redirect back to URL
-				header( 'refresh: 0; url='.$url);
-			}		
-		}
-	}
-	
 	//Edit Image Details
 	elseif ($type == "productedit") 
 	{		

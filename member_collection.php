@@ -19,24 +19,40 @@
 	$firstname = $_SESSION['firstname'];	
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$url = $_SESSION['url_link'];
+	$id = $_SESSION['id'];
 	
 	//include External Files
  	include ('scripts/user_checks.php');
 ?>
 <?php include("scripts/head.php"); ?>
-	<body>
-		<?php echo $msgerror; ?><!-- Echo Error Message-->
-        <div class="fullnav"><!--FullNav-->
-            <div class="logo"><?php include("scripts/logo.php"); ?><!-- Logo External File--></div>
-            <div class="centernav"><!--CenterNav-->
-				 <?php include("scripts/menu.php"); ?><!-- Navigation External File-->
-				 <div id="loginNav">
-				 	<?php include("scripts/user_navigation.php"); ?>
-				</div> 
-			</div><!-- End of CenterNav-->
-        </div><!-- End of FullNav-->	
-        <div id="container"><!--Start of Container-->
-			<?php
+<body>
+<div id="wrapper"><?php echo $msgerror; ?>
+  <?php include("scripts/user_navigation.php"); ?>
+  <?php include("scripts/menu.php"); ?>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Mi Cuenta</h2>
+          <h5><?php echo $username; ?></h5>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-pencil-square-o"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Nombre</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="container"><!--Start of Container-->
+  <?php
 			//Connect To Database
 			include ('db/connect_to_db.php');	
 	        //Search the Database to check to see if the image in the database column matches the select image for collection
@@ -56,24 +72,23 @@
 					$upload_path = $pdrows["upload_path"]; 
 					$thumb = $pdrows["thumb"];
 					?>
-				<div id='collect'>
-					<div class='product-divs'><!--product-divs-->
-						
-						<?php
+  <div id='collect'>
+    <div class='product-divs'><!--product-divs-->
+      
+      <?php
 						
 						echo	"<a href='image_details.php?vid=".$picid."'><img src=".$upload_path.$thumb." alt='".$thumb."' border='0' /></a>";
-						 ?><!-- Members Settings External File-->
-						</div>
-					</div><!-- End of product-divs-->
-				</div>
-					<?php
+						 ?>
+      <!-- Members Settings External File--> 
+    </div>
+  </div>
+  <!-- End of product-divs--> 
+</div>
+<?php
 				}				
 			}	
 			mysqli_close($conn);
-			?>				
-        </div><!-- End of Container-->
-		<div class="full-footer"><!--Full Footer-->
-			<?php include("scripts/footer.php"); ?><!-- Footer External File-->
-		</div><!--End of Full Footer-->
-	</body>
+			?>
+</div>
+</body>
 </html>

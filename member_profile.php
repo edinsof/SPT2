@@ -38,42 +38,65 @@
 	}
 	mysqli_close($conn);
 ?>
-
 <?php include("scripts/head.php"); ?>
-	<body>
-		<?php echo $msgerror; ?><!-- Echo Error Message-->
-        <div class="fullnav"><!--FullNav-->
-            <div class="logo"><?php include("scripts/logo.php"); ?><!-- Logo External File--></div>
-            <div class="centernav"><!--CenterNav-->
-				 <?php include("scripts/menu.php"); ?><!-- Navigation External File-->
-				 <div id="loginNav">
-				 	<?php include("scripts/user_navigation.php"); ?>
-				</div> 
-			</div><!-- End of CenterNav-->
-        </div><!-- End of FullNav-->			
-		<div id="container"><!--Opening Container -->
-			<div class="members"><!--Opening members-->
-				<div class="members-info"><!--Opening members-Info-->
-					<div class="members-title"><h2><?php echo $username; ?>'s Profile</h2></div><!--members-Title-->
-					<p></p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<h3><span>Name:</span> <?php echo $fname." ".$lname; ?></h3>	
-					<h3><span>Username:</span> <?php echo $username; ?></h3>
-					<h3><span>Email Address:</span> <?php echo $email; ?></h3>						
-					<h3><span>Date Started:</span> <?php echo date('d-m-Y', strtotime($date_added));?></h3>	
-					<h3><span>Last Logged In:</span> <?php echo date('d-m-Y', strtotime($last_logged_in));?></h3>					
-					<ul id="members-button-table">
-						<li><a href="edit_member_details.php?uid=<?php echo $id; ?>&url=<?php echo $url; ?>&type=useredit" target="_self"><button>Edit Details</button></a></li>
-						<li><a href="new_image.php?type=newimage&url=<?php echo $url; ?>" target="_self"><button>Upload Image</button></a></li>
-						<li><a href="member_collection.php?userid=<?php echo $id;; ?>" target="_self"><button><?php echo $fname; ?>'s Collection</button></a></li>					
-					<ul>
-				</div><!--Closing members-Info-->
-			</div><!--Closing members-->   
-		</div><!--Closing Container -->
-		<div class="full-footer"><!--Full Footer-->
-			<?php include("scripts/footer.php"); ?><!-- Footer External File-->  
-		</div><!--End of Full Footer-->
-	</body>
+<body>
+<div id="wrapper"><?php echo $msgerror; ?>
+  <?php include("scripts/user_navigation.php"); ?>
+  <?php include("scripts/menu.php"); ?>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Mi Cuenta</h2>
+          <h5><?php echo $username; ?></h5>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-pencil-square-o"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Nombre</p>
+              <p class="text-muted"><?php echo $fname." ".$lname; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-green set-icon"> <i class="fa fa-user"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Usuario</p>
+              <p class="text-muted"><?php echo $username; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-blue set-icon"> <i class="fa fa-envelope"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Email</p>
+              <p class="text-muted"><?php echo $email; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-calendar"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Fecha de registro</p>
+              <p class="text-muted"><?php echo date('d-m-Y', strtotime($date_added));?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-green set-icon"> <i class="fa fa-calendar"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Ultimo acceso</p>
+              <p class="text-muted"><?php echo date('d-m-Y', strtotime($last_logged_in));?></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

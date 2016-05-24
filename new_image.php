@@ -7,7 +7,7 @@
 	//Starting session
 	session_start();	
 	$usuario = $id = $_SESSION['id'];;
-	
+	$id = $_SESSION['id'];
 	
 	//include External Files 
  	include ('scripts/user_checks.php');
@@ -32,60 +32,63 @@
 	}
 	mysqli_close($conn);
 ?>
-
 <?php include("scripts/head.php"); ?>
 <body>
-<?php echo $msgerror; ?><!-- Echo Error Message-->
-<div class="fullnav"><!--FullNav-->
-  <div class="logo">
-    <?php include("scripts/logo.php"); ?>
-    <!-- Logo External File--></div>
-  <div class="centernav"><!--CenterNav-->
-    <?php include("scripts/menu.php"); ?>
-    <!-- Navigation External File-->
-    <div id="loginNav">
-      <?php include("scripts/user_navigation.php"); ?>
+<div id="wrapper"> <?php echo $msgerror; ?><!-- Echo Error Message-->
+  <?php include("scripts/user_navigation.php"); ?>
+  <?php include("scripts/menu.php"); ?>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Subir Imagen</h2>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <div class="row">
+        <div class="col-md-12"> 
+          <!-- Form Elements -->
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <form method="post" action="image_status.php" name="newProductForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input class="form-control" type="text" name="title" id="title" placeholder="<?php echo $fname; ?>_<?php echo date("Y-m-d"); ?>"/>
+                    </div>
+                    <div class="form-group">
+                      <label>Categoria</label>
+                      <select class="form-control" name="category">
+                        <option value="medellin">Programacion DJ's Medellin</option>
+                        <option value="pereira">Programacion DJ's Pereira</option>
+                        <option value="caucasia">Programacion DJ's Caucasia</option>
+                        <option value="sincelejo">Programacion DJ's incelejo</option>
+                        <option value="monteria">Programacion DJ's Monteria</option>
+                        <option value="queestapasando">Que esta Pasando</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Anotaciones</label>
+                      <input class="form-control" name="plot" value="<?php echo $fname; ?>_<?php echo $lname; ?>_<?php echo $_SERVER['REMOTE_ADDR']; ?>_<?php echo date("F-j-Y-H-i-s"); ?>" readonly/>
+                    </div>
+                    <div class="form-group">
+                      <label>Imagen</label>
+                      <input type="file" name="image" id="image" />
+                    </div>
+                    <input type="hidden" name="type" value="<?php echo $type; ?>" />
+                    <input type="hidden" name="url" value="<?php echo $url; ?>" />
+                    <input type="hidden" name="newurl" value="<?php echo $new_url; ?>" />
+                    <input type="submit" name="submit" value="Subir" class="submit-button" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- End of CenterNav--> 
 </div>
-<!-- End of FullNav-->
-<div id="container"><!--Opening Container -->
-  <div id="submit-head">
-    <h3>Subir Imagen</h3>
-  </div>
-  <!--Opening submit Header -->
-  <div id="submit-area"><!-- Opening submit Area -->
-    <form method="post" action="image_status.php" name="newProductForm" enctype="multipart/form-data">
-      <label for="title">Nombre: </label>
-      <input type="text" name="title" id="title" placeholder="<?php echo $fname; ?>_<?php echo date("Y-m-d"); ?>"/>
-      <label for="category">Categoria</label>
-      <select name="category">
-        <option value="medellin">Programacion DJ's Medellin</option>
-        <option value="pereira">Programacion DJ's Pereira</option>
-        <option value="caucasia">Programacion DJ's Caucasia</option>
-        <option value="sincelejo">SProgramacion DJ's incelejo</option>
-        <option value="monteria">Programacion DJ's Monteria</option>
-        <option value="queestapasando">Que esta Pasando</option>
-      </select>
-      <label for="plot">Anotaciones</label>
-      <input name="plot" value="<?php echo $fname; ?>_<?php echo $lname; ?>_<?php echo $_SERVER['REMOTE_ADDR']; ?>_<?php echo date("Y-m-d"); ?>" readonly/>
-      <label for="image">Imagen:</label>
-      <input type="file" name="image" id="image"  />
-      <input type="hidden" name="type" value="<?php echo $type; ?>" />
-      <input type="hidden" name="url" value="<?php echo $url; ?>" />
-      <input type="hidden" name="newurl" value="<?php echo $new_url; ?>" />
-      <input type="submit" name="submit" value="Submit" class="submit-button" />
-    </form>
-    <!-- End of submit Form --> 
-  </div>
-  <!-- Closing submit Area --> 
-</div>
-<!--Closing Container -->
-<div class="full-footer"><!--Full Footer-->
-  <?php include("scripts/footer.php"); ?>
-  <!-- Footer External File--> 
-</div>
-<!--End of Full Footer-->
 </body>
 </html>
