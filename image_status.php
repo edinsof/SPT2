@@ -397,7 +397,7 @@
 
 		if ($deletequery) 
 		{
-			$msg .= $oldTitle.' was Successfully Deleted \n';
+			$msg .= $oldTitle.' eliminado. \n';
 			$msg .='");</script>';				
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL
@@ -405,7 +405,7 @@
 		}
 		else
 		{
-			$msg .='Deletion was Unsuccessful';
+			$msg .='No se pudo eliminar';
 			$msg .='");</script>';				
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL
