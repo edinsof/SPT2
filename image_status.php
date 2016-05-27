@@ -38,19 +38,21 @@
 			
 			if ($update) 
 			{			
-				$msg .= $username.' cambios realizados';
+				$msg .= $username.' Cambios Realizados';
 				$msg .='");</script>';				
 				$_SESSION['error'] = $msg;
 				//Redirect back to URL 
-				header( 'refresh: 0; url='.$url);
+				//header( 'refresh: 0; url='.$url);
+				header( 'refresh: 0; url=edit_member_details.php');
 			}
 			else 
 			{
-				$msg .= $username.' no se pudo actualizar, Intente de nuevo';
+				$msg .= $username.' No se pudo actualizar, Intente de nuevo';
 				$msg .='");</script>';			
 				$_SESSION['error'] = $msg;
 				//Redirect back to URL
-				header( 'refresh: 0; url='.$newurl);		
+				//header( 'refresh: 0; url='.$newurl);
+				header( 'refresh: 0; url=edit_member_details.php');		
 			}				
 		}	
 	}
@@ -219,7 +221,7 @@
 					//Let's set the thumbnail
 					$thumb = "tb_".$filename;
 					//Create a new image from file
-					$sourceimg = imagecreatefromjpeg($upload_path.$fecha.$filename);
+					$sourceimg = imagecreatefromjpeg($upload_path.$filename);
 					//Finds X and Y of File
 					$width = imagesx($sourceimg);
 					$height = imagesy($sourceimg);
@@ -378,23 +380,19 @@
 		
 		$thumb_path = $upload_path.$thumb;
 		$full_path = $upload_path.$fullimage;
-		
 		$oldTitle = $vidtitle;
-		
 		//Delete Files and Folders from Directory
 		unlink($thumb_path);
 		unlink($full_path);
-		rmdir($upload_path);
-
+		//rmdir($upload_path);
 		$deletequery = mysqli_query($conn,"DELETE FROM picture WHERE pictureID = '".$picid."'") or die(mysqli_error($conn));
-
 		if ($deletequery) 
 		{
 			$msg .= $oldTitle.' eliminado. \n';
 			$msg .='");</script>';				
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL
-			header( 'Location: index.php');
+			header( 'Location: show_imagenes.php');
 		}
 		else
 		{
@@ -405,66 +403,6 @@
 			header( 'refresh: 0; url='.$url);
 		}			
 	}	
-	
-	//Add Product to Collection	
-	elseif ($type == "addcollection") 
-	{
-		//Connect To Database
-		include ('db/connect_to_db.php');	
-		//Get pictureID value	
-		$picid = $_REQUEST['vid'];	
-		$id = $_REQUEST['id'];			
-		$title = $_REQUEST['title'];
-		
-		//Add user information into the database table, Put the values into the column row 
-		$insert = mysqli_query($conn,"INSERT INTO usercollection (pictureID, userid, date_added) VALUES
-		('".$picid."', '".$id."', NOW())") or die(mysqli_error($conn));
-
-		//If Function to check if the SQL Command was sucessful
-		if ($insert) 
-		{
-			$msg .= $title.' was Successfully Added';
-			$msg .='");</script>';				
-			$_SESSION['error'] = $msg;
-			//Redirect back to URL
-			header('refresh: 0; url='.$url);
-		}
-		else 
-		{
-			$msg .= $title.' was Unsuccessful Added';
-			$msg .='");</script>';				
-			$_SESSION['error'] = $msg;
-			//Redirect back to URL
-			header('refresh: 0; url='.$url);
-		}		
-	}
-	
-	//Remove Product from Collection		
-	elseif ($type == "removecollection") 
-	{
-		//Connect To Database
-		include ('db/connect_to_db.php');	
-		//Get pictureID value	
-		$picid = $_REQUEST['vid'];	
-		$title = $_GET['title'];
-		$deletequery = mysqli_query($conn,"DELETE FROM usercollection WHERE pictureID = '".$picid."'") or die(mysqli_error($conn)); 
-		if ($deletequery) 
-		{
-			$msg .= $title.' was Successfully Removed';
-			$msg .='");</script>';				
-			$_SESSION['error'] = $msg;
-			//Redirect back to URL
-			header( 'refresh: 0; url='.$url);
-		}
-		else 
-		{
-			$msg .= $title.' could not be Removed, Try Again';
-			$msg .='");</script>';				
-			$_SESSION['error'] = $msg;
-			//Redirect back to URL
-			header( 'refresh: 0; url='.$url);
-		}		
-	}
 	
 	//Remove multiple Product from Collection		
 	elseif ($type == "editusercollection") 
@@ -486,11 +424,11 @@
 			$deletequery = mysqli_query($conn,"DELETE FROM usercollection WHERE pictureID = '".$delbtn."'") or die(mysqli_error($conn));
 			if ($deletequery) 
 			{
-				$msg .= $oldtitle.' was Successfully Removed';
+				$msg .= $oldtitle.' Eliminada correctamente';
 			}
 			else 
 			{
-				$msg .= $oldtitle.' could not be Removed, Try Again';
+				$msg .= $oldtitle.' No se pudo eliminar, Intente de nuevo';
 			}
 		}				
 		
@@ -500,7 +438,6 @@
 		header( 'refresh: 0; url='.$newurl);
 	}
 	//Close Connection to Database
-
 	mysqli_close($conn);
 
 ?>

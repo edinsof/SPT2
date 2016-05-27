@@ -33,18 +33,24 @@
 	{
 		$url = $_GET['url'];				
 	}
+	$id2 = $_SESSION['id'];
+	$url2 = '/apps/edit_member_details.php';
+	$new_url2 = '/apps/edit_member_details.php?uid='.$id2.'&url=/apps/edit_member_details.php&type=useredit';
+	$tipo2 = 'useredit';
+	
+	
 ?>
 <?php include("scripts/head.php"); ?>
-	<body>
-		<div id="wrapper"><?php echo $msgerror; ?>
-        <?php include("scripts/user_navigation.php"); ?>
-        <?php include("scripts/menu.php"); ?>
-        
-		<?php
+<body>
+<div id="wrapper">
+<?php echo $msgerror; ?>
+<?php include("scripts/user_navigation.php"); ?>
+<?php include("scripts/menu.php"); ?>
+<?php
 		//Connect To Database
 		include ('db/connect_to_db.php');
 		//Search the Database to check to see if the product in the database column matches the select product
-		$memquery = mysqli_query($conn,"SELECT * FROM members WHERE userid='".$id."'");
+		$memquery = mysqli_query($conn,"SELECT * FROM members WHERE userid='".$id2."'");
 	
 		while($row = mysqli_fetch_array($memquery))
 		{ 
@@ -56,62 +62,50 @@
 		
 		mysqli_close($conn);
 		?>
-        <div id="page-wrapper">
-  <div id="page-inner">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Editar informacion</h2>
-      </div>
+<div id="page-wrapper">
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Editar informacion</h2>
     </div>
-    <!-- /. ROW  -->
-    <div class="row">
-                <div class="col-md-12">
-                    <!-- Form Elements -->
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form method="post" action="image_status.php" name="editform">
-                                        <div class="form-group">
-                                            <label>Usuario</label>
-                                            <input class="form-control" type="text" name="username" readonly id="username" value="<?php echo $username; ?>" />
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nombres</label>
-                                            <input class="form-control" type="text" name="fname" id="fname" value="<?php echo $fname; ?>" />
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Apellidos</label>
-                                            <input class="form-control" type="text" name="lname" id="lname" value="<?php echo $lname; ?>" />
-                                     
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>"/>
-                                        </div>
-                                        
-                                        <input type="hidden" name="id" value="<?php echo $id; ?>" />
-					<input type="hidden" name="type" value="<?php echo $type; ?>" />
-					<input type="hidden" name="url" value="<?php echo $url; ?>" />	
-					<input type="hidden" name="newurl" value="<?php echo $new_url; ?>" />
-					<input type="submit" name="submit" value="Guardar" class="submit-button" />
-
-
-                                    </form>
-
-
-                                 
-    </div>
-
-                            </div>
-                        </div>
-                    </div>
+  </div>
+  <!-- /. ROW  -->
+  <div class="row">
+    <div class="col-md-12"> 
+      <!-- Form Elements -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+              <form method="post" action="image_status.php" name="editform">
+                <div class="form-group">
+                  <label>Usuario</label>
+                  <input class="form-control" type="text" name="username" readonly id="username" value="<?php echo $username; ?>" />
                 </div>
+                <div class="form-group">
+                  <label>Nombres</label>
+                  <input class="form-control" type="text" name="fname" id="fname" value="<?php echo $fname; ?>" />
+                </div>
+                <div class="form-group">
+                  <label>Apellidos</label>
+                  <input class="form-control" type="text" name="lname" id="lname" value="<?php echo $lname; ?>" />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input class="form-control" type="text" name="email" id="email" value="<?php echo $email; ?>"/>
+                </div>
+                <input type="hidden" name="id" value="<?php echo $id2; ?>" />
+                <input type="hidden" name="type" value="<?php echo $tipo2; ?>" />
+                <input type="hidden" name="url" value="<?php echo $url2; ?>" />
+                <input type="hidden" name="newurl" value="<?php echo $new_url2; ?>" />
+                <input type="submit" name="submit" value="Guardar" class="submit-button" />
+              </form>
             </div>
           </div>
-        
-
-	</body>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

@@ -1,4 +1,3 @@
-
 <?php 
 	//Login Page
 	//Name: SPT
@@ -7,13 +6,11 @@
 	//Plataformas HouseMedia
 	//Starting session
 	session_start();
-
 	if (isset($_SESSION['id'])) 
 	{
 		//Redirect back to URL 
-		header( 'Location: index.php');
+		header( 'Location: usuario.php');
 	}	
-	
 	//Get Last URL
 	$url = $_SESSION['new_link'];	
 	
@@ -24,7 +21,6 @@
 		$password = $_POST['password'];
 		$password = trim($password);
 		$password = md5($password);
-				
 		//Connect To Database
 		include ('db/connect_to_db.php');				
 		$login = mysqli_query($conn,"SELECT * FROM members WHERE username='".$user."' AND password='".$password."'") or die ("Error in query: '".$login."'");
@@ -42,7 +38,6 @@
 				$fname = $row["firstname"];	
 				$_SESSION['firstname'] = $fname;
 			} // close while
-			
 			//Update recent login Date in the database
 			$login_update = mysqli_query($conn,"UPDATE members SET last_logged_in = NOW() WHERE userid = '".$id."'");				
 			//Redirect back to URL 
@@ -57,7 +52,5 @@
 			header( 'refresh: 0; url='.$url);
 		} //End of Else Function
 	} //End of if Function isset Username
-
 	mysqli_close($conn);
-
 ?>

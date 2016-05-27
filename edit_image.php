@@ -7,11 +7,11 @@
 	//Starting session
 	session_start();
 	
-	if (!isset($_SESSION['id']) || $_SESSION['username'] != "admin") 
-	{
+	//if (!isset($_SESSION['id']) || $_SESSION['username'] != "admin") 
+	//{
 		//Redirect back to URL 
-		header( 'Location: index.php');
-	}	
+		//header( 'Location: index.php');
+	//}	
 	
 	//include External Files
  	include ('scripts/user_checks.php');

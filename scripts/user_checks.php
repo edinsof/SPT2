@@ -3,14 +3,12 @@
 	//Version: 1.0
 	//Mayo 2016
 	//Plataformas HouseMedia 
-	
 	//Set Variable to Clear
 	$navlinks = "";
 	$userchoice = "";
 	$usertype = "";	
 	$msgerror = "";
 	$comment = "";
-	
 	//If Session ID is Set
 	if (isset($_SESSION['id'])) 
 	{
@@ -18,13 +16,11 @@
 		$userid = $_SESSION['id'];
 		$firstname = $_SESSION['firstname'];
 		$username = $_SESSION['username'];
-		$comment = 	'<h3><a href="#comment">Write Comment</a></h3>';
+		$comment = 	'<h3>Comentar</h3>';
 		//Put stored session variables into local php variable
-		$usertype = "My Collection";
-
+		$usertype = "Galeria";
 		//Store html code in variable when user logged in 
 		$userchoice = '<a href="member_collection.php?userid=' . $userid . '">' . $usertype . '</a>';
-		
 		//If the username is admin
 		if ($username == 'admin')
 		{
@@ -42,11 +38,16 @@
 	{
 		//Store html code in variable when user is not logged in 
 		$navlinks = '<form action="login.php" method="post" name="LoginForm" onsubmit="return ValidateLoginForm();">
-					<input name="username" value="Username" type="text" class="form-control"/> 
-					<input name="password" value="Password" type="password" class="form-control"/>
-					<input type="hidden" name="url" value="'.$url.'" />					
-					<input type="submit" name="Ingresar" value="login" class="submit-button" />
-					</form>';
+            <br />
+            <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+			<input name="username" value="Username" type="text" class="form-control"/>
+            </div>
+            <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+			<input name="password" value="Password" type="password" class="form-control"/>
+            </div>
+			  <input type="hidden" name="url" value="'.$url.'" />					
+			<input type="submit" name="Ingresar" value="Ingresar" class="submit-button" />
+          </form>';
 					
 		$comment = "";
 		
@@ -58,13 +59,11 @@
 		}
 		elseif (isset($url)) 
 		{
-		
 			$usertype = "Registro";
 			//Store html code in variable when user is not logged in 
 			$userchoice = '<a href="register.php?type=register&url='.$url.'">' . $usertype . '</a>';					
 		}
 	}
-	
 	//If Session variable error is set
 	if(isset($_SESSION['error'])) 
 	{
@@ -72,7 +71,6 @@
 		$msgerror = $_SESSION['error'];
 		$_SESSION['error'] = "";
 	}
-	
 	//Else Session variable error is not set
 	else 
 	{
