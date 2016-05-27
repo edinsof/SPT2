@@ -89,7 +89,7 @@
 						echo '<td><a href="'.$urlpatch.''.$urlimg.'" data-toggle="lightbox"><img src="'.$urlpatch.''.$urlimg.'" width="160" height="auto" alt="Img"></a></td>';		
 						echo '<td><a href="edit_image.php?vid='.$pictureID.'&type=productedit&url=index.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
 </a></td>';			
-						echo '<td><a href="image_status.php?vid='.$pictureID.'&type=productdelete&title='.$title.'&url=index.php&newurl='.$newurl.'&id='.$id.'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>';			
+						echo '<td><a href="image_status.php?vid='.$pictureID.'&type=productdelete&url=index.php&newurl='.$newurl.'&id='.$id.'"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>';			
 					echo '</tr>';
 				}
 				mysqli_close($conn);				

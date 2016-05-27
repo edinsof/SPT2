@@ -86,6 +86,64 @@
 		}					
 	}	
 
+	
+	
+	//Add New Member		
+	elseif ($type == "register") 
+	{
+		
+		if(isset($_POST['submit'])) 
+		{
+			//Connect To Database
+			include ('db/connect_to_db.php');		
+			$result = mysqli_query($conn,"SELECT * FROM members WHERE username = '".$_POST['username']."'") or die(mysqli_error($conn)); 
+			$numcount = mysqli_num_rows($result);
+			if ($numcount > 0) 
+			{
+				$msg .= $_POST['username'].' Este usuario ya existe';
+				$msg .='");</script>';				
+				$_SESSION['error'] = $msg;
+				//Redirect back to URL
+				header( 'refresh: 0; url='.$newurl);
+				
+			}
+			elseif ($numcount == 0) 
+			{
+		    	$username = $_POST['username'];
+				$username = trim($username);				
+				$fname = $_POST['fname'];
+				$fname = trim($fname);				
+				$lname = $_POST['lname'];
+				$lname = trim($lname);				
+				$password = $_POST['password'];
+				$hashpassword = md5($password);
+				$email = $_POST['email'];
+				$email = trim($email);				
+			
+				//Insert variables to table in databasse			
+				$register = mysqli_query($conn,"INSERT INTO members (firstname, lastname, username, password, email, date_added) VALUES 
+				('".$fname."','".$lname."','".$username."','".$hashpassword."','".$email."',NOW())") or die ("Error in query: '".$register."'") 
+				or die(mysqli_error($conn));  
+			
+				if ($register) 
+				{			
+					$msg .= $username.' fue registrado';
+					$msg .='");</script>';				
+					$_SESSION['error'] = $msg;
+					//Redirect back to URL
+					header( 'refresh: 0; url='.$url);
+				}
+				else 
+				{
+					$msg .='Error agregando a '.$username.'. intente de nuevo';
+					$msg .='");</script>';				
+					$_SESSION['error'] = $msg;
+					//Redirect back to URL
+					header( 'refresh: 0; url='.$newurl);
+				}
+			}
+		}			
+	}
 	//Add New Image	
 	elseif ($type == "newimage") 
 	{
@@ -201,63 +259,6 @@
 			}		
 		}		
 	}
-	
-	//Add New Member		
-	elseif ($type == "register") 
-	{
-		
-		if(isset($_POST['submit'])) 
-		{
-			//Connect To Database
-			include ('db/connect_to_db.php');		
-			$result = mysqli_query($conn,"SELECT * FROM members WHERE username = '".$_POST['username']."'") or die(mysqli_error($conn)); 
-			$numcount = mysqli_num_rows($result);
-			if ($numcount > 0) 
-			{
-				$msg .= $_POST['username'].' Este usuario ya existe';
-				$msg .='");</script>';				
-				$_SESSION['error'] = $msg;
-				//Redirect back to URL
-				header( 'refresh: 0; url='.$newurl);
-				
-			}
-			elseif ($numcount == 0) 
-			{
-		    	$username = $_POST['username'];
-				$username = trim($username);				
-				$fname = $_POST['fname'];
-				$fname = trim($fname);				
-				$lname = $_POST['lname'];
-				$lname = trim($lname);				
-				$password = $_POST['password'];
-				$hashpassword = md5($password);
-				$email = $_POST['email'];
-				$email = trim($email);				
-			
-				//Insert variables to table in databasse			
-				$register = mysqli_query($conn,"INSERT INTO members (firstname, lastname, username, password, email, date_added) VALUES 
-				('".$fname."','".$lname."','".$username."','".$hashpassword."','".$email."',NOW())") or die ("Error in query: '".$register."'") 
-				or die(mysqli_error($conn));  
-			
-				if ($register) 
-				{			
-					$msg .= $username.' fue registrado';
-					$msg .='");</script>';				
-					$_SESSION['error'] = $msg;
-					//Redirect back to URL
-					header( 'refresh: 0; url='.$url);
-				}
-				else 
-				{
-					$msg .='Error agregando a '.$username.'. intente de nuevo';
-					$msg .='");</script>';				
-					$_SESSION['error'] = $msg;
-					//Redirect back to URL
-					header( 'refresh: 0; url='.$newurl);
-				}
-			}
-		}			
-	}
 
 	//Edit Image Details
 	elseif ($type == "productedit") 
@@ -273,12 +274,12 @@
 			$title = $_POST["title"];
 			$title = trim($title);			
 			//Replace any item in array with a dash	
-			$newtitle = str_replace(array(' ', ',', '-', '!','/','\',|'), '_', $title);	
+			//$newtitle = str_replace(array(' ', ',', '-', '!','/','\',|'), '_', $title);
+			$newtitle =  $filename;	
 			//Replace any item in array with a dash	
 			
 			$category = $_POST["category"];
 			$category = trim($category);			
-			
 			$plot = mysqli_escape_string($conn, $_POST["plot"]);				
 				
 			$result = mysqli_query($conn,"SELECT * FROM picture WHERE pictureID = '".$picid."'") or die(mysqli_error($conn)); 
@@ -289,33 +290,25 @@
 			}	
 			
 			$oldfolder = $_POST["oldfolder"];
-			$newupload_path = './uploads/'.$newtitle.'/'; //The New Upload Folder
-			
+			$newupload_path = 'uploads/'.$newtitle.'/'; //The New Upload Folder
 			//Set File Paths
 			$filename = $oldfolder.$fullimage;
 			$thumbnail = $oldfolder.$thumb;
-			
 			//Get the Filename without the path location or extension
 			$file_name = pathinfo($filename, PATHINFO_FILENAME);	
-			
 			//Get the Filename extension without the path location or filename
 			$file_ext = pathinfo($filename, PATHINFO_EXTENSION);
-
 			//Get the Filename without the path location or extension			
 			$thumb_name = pathinfo($thumbnail, PATHINFO_FILENAME);	
-			
 			//Get the Filename extension without the path location or filename			
 			$thumb_ext = pathinfo($thumbnail, PATHINFO_EXTENSION);			
-			
 			//Set New Filename
 			$fullimagefile = $newtitle.".".$file_ext;
-			
 			//Set New Thumbnail name
 			$thumbfile = "tb_".$newtitle.".".$thumb_ext;
 			
 			$oldfilename = $filename;
 			$newfilename = $oldfolder.$fullimagefile;
-			
 			$oldthumb = $thumbnail;
 			$newthumb = $oldfolder.$thumbfile;			
 					

@@ -48,7 +48,7 @@
 						?>
 						<div class='product-divs'><!--product-divs-->
 							<?php
-							echo	"<a href='image_details.php?vid=".$picid."'><img src=".$upload_path.$fullimage." width='100%' height= 'auto'alt='".$fullimage."' title='".$title."' border='0' /></a>";
+							echo	"<a href='image_details.php?vid=".$picid."'><img src='".$upload_path.$fullimage."' width='100%' height= 'auto'alt='".$fullimage."' title='".$title."' border='0' /></a>";
 							?>
 						</div><!-- End of product-divs-->
 						<?php

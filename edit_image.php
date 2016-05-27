@@ -21,6 +21,7 @@
 	$url = $_GET['url'];
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$new_url = $_SESSION['url_link'];
+	$id = $_SESSION['id'];
 	
 	//Connect To Database
 	include ('db/connect_to_db.php');	
@@ -32,10 +33,9 @@
 		// Get member ID into a session variable
 		$title = $row["title"];
 		$category = $row["category"];
-		$mediatype = $row["mediatype"];
-		$mediaformat = $row["mediaformat"];
 		$upload_path = $row["upload_path"];
-		$storyline = $row["plot"];			
+		$storyline = $row["plot"];
+		$fecha = $row["date_added"];				
 	}	
 	mysqli_close($conn);
 	
@@ -46,33 +46,55 @@
 
 <?php include("scripts/head.php"); ?>
 	<body>
-		<?php echo $msgerror; ?><!-- Echo Error Message-->
-        <div class="fullnav"><!--FullNav-->
-            <div class="logo"><?php include("scripts/logo.php"); ?><!-- Logo External File--></div>
-            <div class="centernav"><!--CenterNav-->
-				 <?php include("scripts/menu.php"); ?><!-- Navigation External File-->
-				 <div id="loginNav">
-				 	<?php include("scripts/user_navigation.php"); ?>
-				</div> 
-			</div><!-- End of CenterNav-->
-        </div><!-- End of FullNav-->     
-		<div id="container"><!--Opening Container -->
-			<div id="submit-head"><h3>Edit Image Information</h3></div><!--submit Header -->
-			<div id="submit-area"><!-- Opening submit Area -->
-				<form method="post" action="image_status.php" name="editProductForm">
-					<label for="title">Title:</label>
-					<input type="text" name="title" id="title" value="<?php echo $title; ?>"  />
-					<label for="category">Category:</label>
-					<input type="text" name="category" value="<?php echo $category; ?>" />
-					<label for="plot">Experience:</label>
-					<textarea name="plot" cols="" rows="4"><?php echo $storyline; ?></textarea>
-										
-					<input type="submit" name="submit" value="Submit" class="submit-button" />
-				</form><!-- End of submit Form -->
-			</div><!-- Closing submit Area -->
-		</div><!--Closing Container -->
-		<div class="full-footer"><!--Full Footer-->
-			<?php include("scripts/footer.php"); ?><!-- Footer External File-->  
-		</div><!--End of Full Footer-->
+    <div id="wrapper"> <?php echo $msgerror; ?><!-- Echo Error Message-->
+  <?php include("scripts/user_navigation.php"); ?>
+  <?php include("scripts/menu.php"); ?>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Editar Imagen</h2>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <div class="row">
+        <div class="col-md-12"> 
+          <!-- Form Elements -->
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <form method="post" action="image_status.php" name="editProductForm">
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input class="form-control" type="text" name="title" id="title" value="<?php echo $fecha; ?>"  />
+                    </div>
+                    <div class="form-group">
+                      <label>Categoria</label>
+                      <select class="form-control" name="category">
+                      <option value="<?php echo $category; ?>">Actual: <?php echo $category; ?></option>
+                        <option value="medellin">Programacion DJ's Medellin</option>
+                        <option value="pereira">Programacion DJ's Pereira</option>
+                        <option value="caucasia">Programacion DJ's Caucasia</option>
+                        <option value="sincelejo">Programacion DJ's incelejo</option>
+                        <option value="monteria">Programacion DJ's Monteria</option>
+                        <option value="queestapasando">Que esta Pasando</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Anotaciones</label>
+                      <input class="form-control" name="plot" value="<?php echo $storyline; ?>" readonly/>
+                    </div>
+                    <input type="submit" name="submit" value="Actualizar" class="submit-button" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 	</body>
 </html>

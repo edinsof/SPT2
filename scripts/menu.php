@@ -8,6 +8,7 @@
     <div class="sidebar-collapse">
       <ul class="nav" id="main-menu">
       <?php
+	  $url  = $_GET['url'];
       //If the username is admin
 		if ($username == 'admin')
 		{

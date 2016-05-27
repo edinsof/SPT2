@@ -8,15 +8,12 @@
 	session_start();	
 	$usuario = $id = $_SESSION['id'];;
 	$id = $_SESSION['id'];
-	
 	//include External Files 
  	include ('scripts/user_checks.php');
-	
 	$type = $_GET['type'];
 	$url = $_GET['url'];
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$new_url = $_SESSION['url_link'];
-	
 	//Connect To Database
 	include ('db/connect_to_db.php');	
 	//Search the Database to check to see if the user in the database column matches the select user

@@ -1,0 +1,9 @@
+[27-May-2016 10:56:49 America/New_York] PHP Warning:  exif_read_data() expects parameter 1 to be a valid path, resource given in /home/housygxd/public_html/spt/programacion.php on line 115
+[27-May-2016 10:56:49 America/New_York] PHP Warning:  exif_read_data() expects parameter 1 to be a valid path, resource given in /home/housygxd/public_html/spt/programacion.php on line 115
+[27-May-2016 10:56:49 America/New_York] PHP Warning:  exif_read_data() expects parameter 1 to be a valid path, resource given in /home/housygxd/public_html/spt/programacion.php on line 115
+[27-May-2016 11:04:37 America/New_York] PHP Notice:  Undefined variable: myImage in /home/housygxd/public_html/spt/programacion.php on line 132
+[27-May-2016 11:04:37 America/New_York] PHP Notice:  Undefined variable: myImage in /home/housygxd/public_html/spt/programacion.php on line 133
+[27-May-2016 11:04:37 America/New_York] PHP Notice:  Undefined variable: myImage in /home/housygxd/public_html/spt/programacion.php on line 132
+[27-May-2016 11:04:37 America/New_York] PHP Notice:  Undefined variable: myImage in /home/housygxd/public_html/spt/programacion.php on line 133
+[27-May-2016 11:04:37 America/New_York] PHP Notice:  Undefined variable: myImage in /home/housygxd/public_html/spt/programacion.php on line 132
+[27-May-2016 11:04:37 America/New_York] PHP Notice:  Undefined variable: myImage in /home/housygxd/public_html/spt/programacion.php on line 133
