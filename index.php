@@ -14,8 +14,10 @@
 	//Store values in variables
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$url = $_SESSION['url_link'];
-	$_SESSION['new_link'] = $url;	
-	
+	$_SESSION['new_link'] = $url;
+	//Obtener Fecha
+	$hoy = date("Y-m-d");	
+	//echo $hoy;
 	//include External Files
  	include ('scripts/user_checks.php');
 	$nums = "";
@@ -80,6 +82,7 @@
 					while($rghtrow = mysqli_fetch_array($rghtresult))
 					{ 
 						$picid = $rghtrow["pictureID"];
+						$dia = $rghtrow["fecha"];
 						$fullimage = $rghtrow["fullimage"];
 						$upload_path = $rghtrow["upload_path"];
 						$categoria = $rghtrow["category"];
@@ -107,7 +110,15 @@
 						imagedestroy($rotate);
 						}
 				//Rotacion
-				  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //Comparar dias
+				  if ($hoy < $dia) {
+					  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>'; 
+					  } else {
+					  echo '';
+					  }
+					  //Comparar dias
+				  
 				  } else {
 					  echo '';
 					  }
@@ -131,6 +142,7 @@
 					while($rghtrow = mysqli_fetch_array($rghtresult))
 					{ 
 						$picid = $rghtrow["pictureID"];
+						$dia = $rghtrow["fecha"];
 						$fullimage = $rghtrow["fullimage"];
 						$upload_path = $rghtrow["upload_path"];
 						$categoria = $rghtrow["category"];
@@ -158,10 +170,14 @@
 						imagedestroy($rotate);
 						}
 				//Rotacion	
-				  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
-				  
-				    
-
+				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //Comparar dias
+				  if ($hoy < $dia) {
+					  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>'; 
+					  } else {
+					  echo '';
+					  }
+					  //Comparar dias
 				  } else {
 					  echo '';
 					  }
@@ -185,6 +201,7 @@
 					while($rghtrow = mysqli_fetch_array($rghtresult))
 					{ 
 						$picid = $rghtrow["pictureID"];
+						$dia = $rghtrow["fecha"];
 						$fullimage = $rghtrow["fullimage"];
 						$upload_path = $rghtrow["upload_path"];
 						$categoria = $rghtrow["category"];
@@ -212,7 +229,14 @@
 						imagedestroy($rotate);
 						}
 				//Rotacion
-				  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //Comparar dias
+				  if ($hoy < $dia) {
+					  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>'; 
+					  } else {
+					  echo '';
+					  }
+					  //Comparar dias
 				  } else {
 					  echo '';
 					  }
@@ -236,6 +260,7 @@
 					while($rghtrow = mysqli_fetch_array($rghtresult))
 					{ 
 						$picid = $rghtrow["pictureID"];
+						$dia = $rghtrow["fecha"];
 						$fullimage = $rghtrow["fullimage"];
 						$upload_path = $rghtrow["upload_path"];
 						$categoria = $rghtrow["category"];
@@ -263,7 +288,14 @@
 						imagedestroy($rotate);
 						}
 				//Rotacion
-				  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //Comparar dias
+				  if ($hoy < $dia) {
+					  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>'; 
+					  } else {
+					  echo '';
+					  }
+					  //Comparar dias
 				  } else {
 					  echo '';
 					  }
@@ -287,6 +319,7 @@
 					while($rghtrow = mysqli_fetch_array($rghtresult))
 					{ 
 						$picid = $rghtrow["pictureID"];
+						$dia = $rghtrow["fecha"];
 						$fullimage = $rghtrow["fullimage"];
 						$upload_path = $rghtrow["upload_path"];
 						$categoria = $rghtrow["category"];
@@ -314,7 +347,14 @@
 						imagedestroy($rotate);
 						}
 				//Rotacion
-				  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
+				  //Comparar dias
+				  if ($hoy < $dia) {
+					  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>'; 
+					  } else {
+					  echo '';
+					  }
+					  //Comparar dias
 				  } else {
 					  echo '';
 					  }

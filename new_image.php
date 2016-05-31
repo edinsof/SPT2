@@ -69,6 +69,12 @@
                       </select>
                     </div>
                     <div class="form-group">
+                      <label for="text">Fecha de Finalizacion</label>
+                      <div class="input-group date" id="datetimepicker1">
+                        <input type="text" class="form-control" id="fecha" name="fecha" />
+                        <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span> </div>
+                    </div>
+                    <div class="form-group">
                       <label>Anotaciones</label>
                       <input class="form-control" name="plot" value="<?php echo $fname; ?>_<?php echo $lname; ?>_<?php echo $_SERVER['REMOTE_ADDR']; ?>_<?php echo date("F-j-Y-H-i-s"); ?>" readonly/>
                     </div>
@@ -81,6 +87,7 @@
                     <input type="hidden" name="newurl" value="<?php echo $new_url; ?>" />
                     <input type="submit" name="submit" value="Subir" class="submit-button" />
                   </form>
+                  
                 </div>
               </div>
             </div>
@@ -90,5 +97,12 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD' 
+            });
+        });
+    </script> 
 </body>
 </html>

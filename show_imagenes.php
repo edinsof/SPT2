@@ -37,7 +37,8 @@
                   <thead>
                     <tr>
                       <th>Id</th>
-                      <th>Fecha</th>
+                      <th>Fecha Subida</th>
+                      <th>Fecha Finalizacion</th>
                       <th>Categoria</th>
                       <th>Anotaciones</th>
                       <th>URL</th>
@@ -70,6 +71,7 @@
 				{ 
 					$pictureID = $row["pictureID"];
 					$fecha = $row["date_added"];
+					$fechafin = $row["fecha"];
 					$categoria = $row["category"];
 					$notas = $row["plot"];
 					$urlpatch = $row["upload_path"];
@@ -80,6 +82,7 @@
 					echo '<tr>';
 						echo '<td>'.$pictureID.'</td>';
 						echo '<td>'.$fecha.'</td>';
+						echo '<td>'.$fechafin.'</td>';
 						echo '<td>'.$categoria.'</td>';
 						echo '<td>'.$notas.'</td>';		
 						echo '<td><a href="'.$urlpatch.''.$urlimg.'" data-toggle="lightbox"><img src="'.$urlpatch.''.$urlimg.'" width="160" height="auto" alt="Img"></a></td>';		
