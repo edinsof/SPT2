@@ -30,7 +30,7 @@
       <div class="panel panel-default">
         <div class="panel-heading"> <strong> By HouseMedia </strong> </div>
         <div class="panel-body">
-        <?php echo $navlinks; ?>
+        <?php echo $navlinks2; ?>
         </div>
       </div>
     </div>

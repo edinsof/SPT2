@@ -167,6 +167,7 @@
 				//$_POST variables			
 				$title = addslashes($_POST['title']);		
 				$category = addslashes($_POST['category']);
+				$usuariosubi = addslashes($_POST['usuario']);
 				$plot = addslashes($_POST['plot']);	
 				$fechas = addslashes($_POST['fecha']);
 			} 
@@ -174,6 +175,7 @@
 			{
 				$title = $_POST['title'];
 				$cateory = $_POST['category'];
+				$usuariosubi = addslashes($_POST['usuario']);
 				$plot = $_POST['plot'];
 				$fechas = $_POST['fecha'];				
 			}
@@ -237,8 +239,8 @@
 					imagedestroy($sourceimg);
 					imagedestroy($destination);
 					//Insert variables to table in database
-					$insert = mysqli_query($conn,"INSERT INTO picture(title, fecha, fullimage, upload_path, ext, category, thumb, plot, date_added) VALUES
-					('".$title."','".$fechas."','".$filename."','".$upload_path."','".$extension."',
+					$insert = mysqli_query($conn,"INSERT INTO picture(title, fecha, usuario, fullimage, upload_path, ext, category, thumb, plot, date_added) VALUES
+					('".$title."','".$fechas."','".$usuariosubi."','".$filename."','".$upload_path."','".$extension."',
 					'".$category."','".$thumb."','".$plot."', NOW())") or die(mysqli_error($conn)); 
 					
 					//Get Last Inserted Id

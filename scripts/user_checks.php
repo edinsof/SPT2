@@ -25,19 +25,22 @@
 		if ($username == 'admin')
 		{
 			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';
+			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=admin_profile.php"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';
 		}
 		//else Do This
 		elseif ($username != 'admin')
 		{
 			//Store html code in variable when user logged in 
-			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="member_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';			
+			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="member_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';
+			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=member_profile.php"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';			
 		}
+		
 	}
 	//If Nobody is logged in Display This
 	else 
 	{
 		//Store html code in variable when user is not logged in 
-		$navlinks = '<form action="login.php" method="post" name="LoginForm" onsubmit="return ValidateLoginForm();">
+		$navlinks2 = '<form action="login.php" method="post" name="LoginForm" onsubmit="return ValidateLoginForm();">
             <br />
             <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
 			<input name="username" value="Username" type="text" class="form-control"/>

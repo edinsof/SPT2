@@ -47,14 +47,6 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h2>Mi Cuenta</h2>
-          <h5><?php echo $username; ?></h5>
-        </div>
-      </div>
-      <!-- /. ROW  -->
-      <hr>
-      <div class="row">
-        <div class="col-md-12">
           <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-pencil-square-o"></i> </span>
             <div class="text-box">
               <p class="main-text">Nombre</p>

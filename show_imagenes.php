@@ -11,6 +11,7 @@
 		//header( 'Location: index.php');
 	//}	
 	$id = $_SESSION['id'];
+	$elusuario = $_SESSION['username'];
 	//include External Files 
  	include ('scripts/user_checks.php');
 ?>
@@ -52,17 +53,26 @@
 			include ('db/connect_to_db.php');
 			
 			//Search the Database to check to see if the image in the database column matches the select image
-			$showquery = mysqli_query($conn,"SELECT * FROM picture");
+			if ($elusuario == 'admin'){
+				$showquery = mysqli_query($conn,"SELECT * FROM picture");
+			}
+			else 
+			{
+				$showquery = mysqli_query($conn,"SELECT * FROM picture where usuario ='$elusuario'");
+				}	
+			//$showquery = mysqli_query($conn,"SELECT * FROM picture where usuario ='$elusuario'");
 			$num_check = mysqli_num_rows($showquery);
 			if ($num_check == 0) 
 			{
 				echo '<tr>';
-					echo '<td></td>';
-					echo '<td></td>';
-					echo '<td></td>';
-					echo '<td></td>';				
-					echo '<td><a href=""><img src="images/buttons/edit.png" alt="" width="60" height="60" /></a></td>';			
-					echo '<td><a href=""><img src="images/buttons/delete.png" alt="" width="60" height="60" /></a></td>';			
+					echo '<td>Ninguno</td>';
+					echo '<td>Ninguno</td>';
+					echo '<td>Ninguno</td>';
+					echo '<td>Ninguno</td>';				
+					echo '<td>Ninguno</td>';			
+					echo '<td>Ninguno</td>';	
+					echo '<td>Ninguno</td>';
+					echo '<td>Ninguno</td>';		
 				echo '</tr>';
 			}
 			else 

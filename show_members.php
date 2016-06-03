@@ -3,10 +3,8 @@
 	//Version: 1.0
 	//Mayo 2016
 	//Plataformas HouseMedia
-	
 	//Starting session
 	session_start();
-	
 	if (!isset($_SESSION['id']) || $_SESSION['username'] != "admin") 
 	{
 		//Redirect back to URL 
@@ -16,7 +14,6 @@
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$url = $_SESSION['url_link'];
 	$_SESSION['new_link'] = $url;	
-	
 	//include External Files 
  	include ('scripts/user_checks.php');
 ?>
@@ -44,6 +41,8 @@
                   <tr>
                     <th>ID</th>
                     <th>Usuario</th>
+                    <th>Nombre Completo</th>
+                    <th>Ultima session</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
@@ -58,12 +57,17 @@
 			{ 
 				$userid = $row["userid"];
 				$username = $row["username"];
+				$primernombre = $row["firstname"];
+				$segnombre = $row["lastname"];
+				$lsession = $row["last_logged_in"];
 				$newurl = "";
 				$vid = "";
 					
 				echo '<tr>';
 					echo '<td>'.$userid.'</td>';
 					echo '<td>'.$username.'</td>';
+					echo '<td>'.$primernombre.' '.$segnombre.'</td>';
+					echo '<td>'.$lsession.'</td>';
 					echo '<td><a href="edit_member_details.php?uid='.$userid.'&type=useredit"><img src="images/buttons/edit.png" alt="" width="35" height="35" /></a></td>';			
 					echo '<td><a href="image_status.php?id='.$userid.'&type=userdelete&username='.$username.'&url='.$url.'&newurl='.$newurl.'&vid='.$vid.'"><img src="images/buttons/delete.png" alt="" width="35" height="35" /></a></td>';			
 				echo '</tr>';

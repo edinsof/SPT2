@@ -82,6 +82,7 @@
                       <label>Imagen</label>
                       <input type="file" name="image" id="image" />
                     </div>
+                    <input type="hidden" name="usuario" value="<?php echo $username; ?>" />
                     <input type="hidden" name="type" value="<?php echo $type; ?>" />
                     <input type="hidden" name="url" value="<?php echo $url; ?>" />
                     <input type="hidden" name="newurl" value="<?php echo $new_url; ?>" />
