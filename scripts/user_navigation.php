@@ -11,8 +11,5 @@
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
     <a class="navbar-brand" href="index.php">SPT</a> </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Hola, <?php echo $nombre; ?>&nbsp; <?php echo $navlinks; ?> </div>
+  <div style="color:white;padding: 15px 10px 5px 10px;text-align:center;font-size: 16px;"> Hola, <?php echo $nombre; ?>&nbsp; <?php echo $navlinks; ?> </div>
 </nav>

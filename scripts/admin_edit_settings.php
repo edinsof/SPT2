@@ -5,7 +5,7 @@
 	//Plataformas HouseMedia
 
 	//If Session username is Set
-	if (isset($_SESSION['username']) && $_SESSION['username']=="admin") 
+	if (isset($_SESSION['username']) && $_SESSION['rol']=="Administrador") 
 	{
 		//If the username is admin
 		?>
