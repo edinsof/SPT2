@@ -30,6 +30,8 @@
 			while($row = mysqli_fetch_array($login))
 			{ 
 				// Get member ID into a session variable
+				$rol = $row["rol"];    
+				$_SESSION['rol'] = $rol;
 				$id = $row["userid"];    
 				$_SESSION['id'] = $id;
 				// Get member username into a session variable

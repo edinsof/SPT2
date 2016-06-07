@@ -64,6 +64,13 @@
                       <input class="form-control" type="text" name="username" id="username" placeholder="Usuario" />
                     </div>
                     <div class="form-group">
+                      <label>Tipo</label>
+                      <select class="form-control" name="rol">
+                        <option value="Usuario">Usuario</option>
+                        <option value="Administrador">Administrador</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
                       <label>Password</label>
                       <input class="form-control" type="password" name="password" id="password" />
                     </div>

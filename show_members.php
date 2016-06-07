@@ -5,7 +5,7 @@
 	//Plataformas HouseMedia
 	//Starting session
 	session_start();
-	if (!isset($_SESSION['id']) || $_SESSION['username'] != "admin") 
+	if (!isset($_SESSION['id']) || $_SESSION['rol'] != "Administrador") 
 	{
 		//Redirect back to URL 
 		header( 'Location: index.php');
@@ -42,6 +42,7 @@
                     <th>ID</th>
                     <th>Usuario</th>
                     <th>Nombre Completo</th>
+                    <th>Tipo</th>
                     <th>Ultima session</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
@@ -60,6 +61,7 @@
 				$primernombre = $row["firstname"];
 				$segnombre = $row["lastname"];
 				$lsession = $row["last_logged_in"];
+				$roles = $row["rol"];
 				$newurl = "";
 				$vid = "";
 					
@@ -67,9 +69,10 @@
 					echo '<td>'.$userid.'</td>';
 					echo '<td>'.$username.'</td>';
 					echo '<td>'.$primernombre.' '.$segnombre.'</td>';
+					echo '<td>'.$roles.'</td>';
 					echo '<td>'.$lsession.'</td>';
 					echo '<td><a href="edit_member_details.php?uid='.$userid.'&type=useredit"><img src="images/buttons/edit.png" alt="" width="35" height="35" /></a></td>';			
-					echo '<td><a href="image_status.php?id='.$userid.'&type=userdelete&username='.$username.'&url='.$url.'&newurl='.$newurl.'&vid='.$vid.'"><img src="images/buttons/delete.png" alt="" width="35" height="35" /></a></td>';			
+					echo '<td><a href="image_status.php?id='.$userid.'&type=userdelete&username='.$username.'&url=/apps/show_members.php"><img src="images/buttons/delete.png" alt="" width="35" height="35" /></a></td>';			
 				echo '</tr>';
 			}				
 			mysqli_close($conn);

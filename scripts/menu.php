@@ -9,8 +9,9 @@
       <ul class="nav" id="main-menu">
       <?php
 	  $url  = $_GET['url'];
+	  $rol = $_SESSION['rol'];
       //If the username is admin
-		if ($username == 'admin')
+		if ($rol == 'Administrador')
 		{
 			echo '<li><a href="admin_profile.php"><i class="fa fa-home fa-3x"></i> Home</a></li>';
 			echo '<li><a href="edit_member_details.php?uid='.$id.'"><i class="fa fa-user fa-3x"></i> Editar Mis Datos</a></li>';
@@ -20,7 +21,7 @@
 			echo '<li><a href="show_imagenes.php"><i class="fa fa-camera fa-3x"></i> Ver Imagenes</a></li>';
 		}
 		//else Do This
-		elseif ($username != 'admin')
+		elseif ($username != 'Administrador')
 		{
 			echo '<li><a href="member_profile.php"><i class="fa fa-home fa-3x"></i> Home</a></li>';
 			echo '<li><a href="edit_member_details.php?uid='.$id.'"><i class="fa fa-user fa-3x"></i> Editar Mis Datos</a></li>';

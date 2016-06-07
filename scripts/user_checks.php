@@ -16,19 +16,15 @@
 		$userid = $_SESSION['id'];
 		$firstname = $_SESSION['firstname'];
 		$username = $_SESSION['username'];
-		$comment = 	'<h3>Comentar</h3>';
-		//Put stored session variables into local php variable
-		$usertype = "Galeria";
-		//Store html code in variable when user logged in 
-		$userchoice = '<a href="member_collection.php?userid=' . $userid . '">' . $usertype . '</a>';
+		$rol = $_SESSION['rol'];
 		//If the username is admin
-		if ($username == 'admin')
+		if ($rol == 'Administrador')
 		{
 			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';
 			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=admin_profile.php"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';
 		}
 		//else Do This
-		elseif ($username != 'admin')
+		elseif ($rol != 'Administrador')
 		{
 			//Store html code in variable when user logged in 
 			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="member_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';

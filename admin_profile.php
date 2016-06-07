@@ -7,7 +7,7 @@
 	//Starting session
 	session_start();
 	
-	if (!isset($_SESSION['id']) || $_SESSION['username'] != "admin") 
+	if (!isset($_SESSION['id']) || $_SESSION['rol'] != "Administrador") 
 	{
 		//Redirect back to URL 
 		header( 'Location: index.php');
@@ -16,6 +16,7 @@
 	//Store values in variables
 	$username = $_SESSION['username'];
 	$id = $_SESSION['id'];
+	$rol = $_SESSION['rol'];
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$url = $_SESSION['url_link'];
 	
@@ -46,11 +47,19 @@
   <div id="page-wrapper">
     <div id="page-inner">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-pencil-square-o"></i> </span>
             <div class="text-box">
               <p class="main-text">Nombre</p>
               <p class="text-muted"><?php echo $fname." ".$lname; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-users"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Tipo</p>
+              <p class="text-muted"><?php echo $rol; ?></p>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@
 		//header( 'Location: index.php');
 	//}	
 	$id = $_SESSION['id'];
+	$rol = $_SESSION['rol'];
 	$elusuario = $_SESSION['username'];
 	//include External Files 
  	include ('scripts/user_checks.php');
@@ -52,7 +53,7 @@
 			include ('db/connect_to_db.php');
 			
 			//Search the Database to check to see if the image in the database column matches the select image
-			if ($elusuario == 'admin'){
+			if ($rol == 'Administrador'){
 				$showquery = mysqli_query($conn,"SELECT * FROM picture");
 			}
 			else 
