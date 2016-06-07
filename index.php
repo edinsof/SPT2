@@ -6,11 +6,11 @@
 	
 	//Starting session
 	session_start();
-	if (isset($_SESSION['id'])) 
-	{
+	//if (isset($_SESSION['id'])) 
+	//{
 		//Redirect back to URL 
-		header( 'Location: usuario.php');
-	}
+		//header( 'Location: usuario.php');
+	//}
 	//Store values in variables
 	$_SESSION['url_link'] = $_SERVER['REQUEST_URI'];
 	$url = $_SESSION['url_link'];
