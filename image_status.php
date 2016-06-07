@@ -312,40 +312,6 @@
 			header( 'refresh: 0; url='.$url);
 		}			
 	}	
-	
-	//Remove multiple Product from Collection		
-	elseif ($type == "editusercollection") 
-	{
-		//Connect To Database
-		include ('db/connect_to_db.php');	
-		//Get pictureID value	
-		$deletebtn = $_REQUEST['deletebtn'];	
-		
-		foreach ($deletebtn as $delbtn) 
-		{
-			$result = mysqli_query($conn,"SELECT * FROM picture WHERE pictureID = '".$delbtn."'") or die(mysqli_error($conn));
-			while($trow = mysqli_fetch_array($result))
-			{ 
-				$title = $trow["title"];		
-			}
-				$oldtitle = $title;
-			
-			$deletequery = mysqli_query($conn,"DELETE FROM usercollection WHERE pictureID = '".$delbtn."'") or die(mysqli_error($conn));
-			if ($deletequery) 
-			{
-				$msg .= $oldtitle.' Eliminada correctamente';
-			}
-			else 
-			{
-				$msg .= $oldtitle.' No se pudo eliminar, Intente de nuevo';
-			}
-		}				
-		
-		$msg .='");</script>';				
-		$_SESSION['error'] = $msg;
-		//Redirect back to URL
-		header( 'refresh: 0; url='.$newurl);
-	}
 	//Close Connection to Database
 	mysqli_close($conn);
 
