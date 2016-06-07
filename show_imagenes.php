@@ -43,7 +43,6 @@
                       <th>Categoria</th>
                       <th>Anotaciones</th>
                       <th>URL</th>
-                      <th>Editar</th>
                       <th>Borrar</th>
                     </tr>
                   </thead>
@@ -71,8 +70,7 @@
 					echo '<td>Ninguno</td>';				
 					echo '<td>Ninguno</td>';			
 					echo '<td>Ninguno</td>';	
-					echo '<td>Ninguno</td>';
-					echo '<td>Ninguno</td>';		
+					echo '<td>Ninguno</td>';	
 				echo '</tr>';
 			}
 			else 
@@ -96,8 +94,6 @@
 						echo '<td>'.$categoria.'</td>';
 						echo '<td>'.$notas.'</td>';		
 						echo '<td><a href="'.$urlpatch.''.$urlimg.'" data-toggle="lightbox"><img src="'.$urlpatch.''.$urlimg.'" width="160" height="auto" alt="Img"></a></td>';		
-						echo '<td><a href="edit_image.php?vid='.$pictureID.'&type=productedit&url=index.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-</a></td>';			
 						echo '<td><a href="image_status.php?vid='.$pictureID.'&type=productdelete&url=/apps/show_imagenes.php"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>';			
 					echo '</tr>';
 				}

@@ -223,25 +223,25 @@
 					$filename = "$fecha-$changedfile";
 					rename($oldfilename, $newfilename);
 					//Let's set the thumbnail
-					$thumb = "tb_".$filename;
+					//$thumb = "tb_".$filename;
 					//Create a new image from file
-					$sourceimg = imagecreatefromjpeg($upload_path.$filename);
+					//$sourceimg = imagecreatefromjpeg($upload_path.$filename);
 					//Finds X and Y of File
-					$width = imagesx($sourceimg);
-					$height = imagesy($sourceimg);
+					//$width = imagesx($sourceimg);
+					//$height = imagesy($sourceimg);
 					//Create a new true color image
-					$destination = imagecreatetruecolor($modwidth, $modheight);
+					//$destination = imagecreatetruecolor($modwidth, $modheight);
 					//Creates a Copy of source file and saves to new destination file
-					imagecopyresampled($destination, $sourceimg, 0, 0, 0, 0, $modwidth, $modheight, $width, $height);
+					//imagecopyresampled($destination, $sourceimg, 0, 0, 0, 0, $modwidth, $modheight, $width, $height);
 					//create the thumbnail image to the destination
-					imagejpeg($destination, $upload_path.$thumb);
+					//imagejpeg($destination, $upload_path.$thumb);
 					//Destroying Images Created and freeing up any memory associated with images
-					imagedestroy($sourceimg);
-					imagedestroy($destination);
+					//imagedestroy($sourceimg);
+					//imagedestroy($destination);
 					//Insert variables to table in database
-					$insert = mysqli_query($conn,"INSERT INTO picture(title, fecha, usuario, fullimage, upload_path, ext, category, thumb, plot, date_added) VALUES
+					$insert = mysqli_query($conn,"INSERT INTO picture(title, fecha, usuario, fullimage, upload_path, ext, category, plot, date_added) VALUES
 					('".$title."','".$fechas."','".$usuariosubi."','".$filename."','".$upload_path."','".$extension."',
-					'".$category."','".$thumb."','".$plot."', NOW())") or die(mysqli_error($conn)); 
+					'".$category."','".$plot."', NOW())") or die(mysqli_error($conn)); 
 					
 					//Get Last Inserted Id
 					$lastid = mysqli_insert_id($conn);
@@ -266,104 +266,9 @@
 		}		
 	}
 
-	//Edit Image Details
-	elseif ($type == "productedit") 
-	{		
-
-		if(isset($_POST['submit'])) 
-		{
-			//Connect To Database
-			include ('db/connect_to_db.php');
-			
-			//Get pictureID value	
-			$picid = $_POST['vid'];		
-			$title = $_POST["title"];
-			$title = trim($title);			
-			//Replace any item in array with a dash	
-			//$newtitle = str_replace(array(' ', ',', '-', '!','/','\',|'), '_', $title);
-			$newtitle =  $filename;	
-			//Replace any item in array with a dash	
-			
-			$category = $_POST["category"];
-			$category = trim($category);			
-			$plot = mysqli_escape_string($conn, $_POST["plot"]);				
-				
-			$result = mysqli_query($conn,"SELECT * FROM picture WHERE pictureID = '".$picid."'") or die(mysqli_error($conn)); 
-			while($row = mysqli_fetch_array($result))
-			{ 
-				$fullimage = $row["fullimage"];	
-				$thumb = $row["thumb"];	
-			}	
-			
-			$oldfolder = $_POST["oldfolder"];
-			$newupload_path = 'uploads/'.$newtitle.'/'; //The New Upload Folder
-			//Set File Paths
-			$filename = $oldfolder.$fullimage;
-			$thumbnail = $oldfolder.$thumb;
-			//Get the Filename without the path location or extension
-			$file_name = pathinfo($filename, PATHINFO_FILENAME);	
-			//Get the Filename extension without the path location or filename
-			$file_ext = pathinfo($filename, PATHINFO_EXTENSION);
-			//Get the Filename without the path location or extension			
-			$thumb_name = pathinfo($thumbnail, PATHINFO_FILENAME);	
-			//Get the Filename extension without the path location or filename			
-			$thumb_ext = pathinfo($thumbnail, PATHINFO_EXTENSION);			
-			//Set New Filename
-			$fullimagefile = $newtitle.".".$file_ext;
-			//Set New Thumbnail name
-			$thumbfile = "tb_".$newtitle.".".$thumb_ext;
-			
-			$oldfilename = $filename;
-			$newfilename = $oldfolder.$fullimagefile;
-			$oldthumb = $thumbnail;
-			$newthumb = $oldfolder.$thumbfile;			
-					
-			if ($oldfolder != $newupload_path) 
-			{
-				if ($file_name != $newtitle)
-				{
-					//Rename files (old file, new file)
-					rename($oldfilename, $newfilename);		
-					rename($oldthumb, $newthumb);						
-				}
-				
-				//Rename file folder (old folder, new folder)
-				rename($oldfolder, $newupload_path );
-				$uploadpath = $newupload_path;
-				$thumbnail_image = $thumbfile;
-				$filename_image = $fullimagefile;
-			}		
-			else 
-			{
-				$uploadpath = $oldfolder;
-				$thumbnail_image = $thumb;
-				$filename_image = $fullimage;
-			}
-			
-			$update = mysqli_query($conn,"UPDATE picture SET title = '".$title."', category = '".$category."', 
-			 plot = '".$plot."', upload_path = '".$uploadpath."', fullimage = '".$filename_image."', 
-			thumb = '".$thumbnail_image."'  WHERE pictureID = '".$picid."'") or die(mysqli_error($conn)); 
-			
-			if ($update)
-			{				
-				$msg .= ' was Successfully Updated \n';
-				$msg .='");</script>';					
-				$_SESSION['error'] = $msg;
-				//Redirect back to URL
-				header( 'refresh: 0; url='.$url);
-			}
-			else 
-			{
-				$msg .= ' Failed Updated \n';
-				$msg .='");</script>';					
-				$_SESSION['error'] = $msg;
-				//Redirect back to URL
-				header( 'refresh: 0; url='.$newurl);		
-			}			
-		}
-	}
 	
-	//Delete Product Details		
+	
+	//Borrado		
 	elseif ($type == "productdelete")
 	{
 		//Connect To Database
@@ -379,20 +284,20 @@
 			$vidtitle = $row["title"];
 			$fullimage = $row["fullimage"];	
 			$upload_path = $row["upload_path"];	
-			$thumb = $row["thumb"];	
+			//$thumb = $row["thumb"];	
 		}
 		
-		$thumb_path = $upload_path.$thumb;
+		//$thumb_path = $upload_path.$thumb;
 		$full_path = $upload_path.$fullimage;
 		$oldTitle = $vidtitle;
 		//Delete Files and Folders from Directory
-		unlink($thumb_path);
+		//unlink($thumb_path);
 		unlink($full_path);
 		//rmdir($upload_path);
 		$deletequery = mysqli_query($conn,"DELETE FROM picture WHERE pictureID = '".$picid."'") or die(mysqli_error($conn));
 		if ($deletequery) 
 		{
-			$msg .= $oldTitle.' eliminado. \n';
+			$msg .= $oldTitle.' Eliminado. \n';
 			$msg .='");</script>';				
 			$_SESSION['error'] = $msg;
 			//Redirect back to URL

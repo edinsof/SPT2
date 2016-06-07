@@ -63,7 +63,7 @@
                         <option value="medellin">Programacion DJ's Medellin</option>
                         <option value="pereira">Programacion DJ's Pereira</option>
                         <option value="caucasia">Programacion DJ's Caucasia</option>
-                        <option value="sincelejo">Programacion DJ's incelejo</option>
+                        <option value="sincelejo">Programacion DJ's Sincelejo</option>
                         <option value="monteria">Programacion DJ's Monteria</option>
                         <option value="queestapasando">Que esta Pasando</option>
                       </select>

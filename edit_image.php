@@ -33,9 +33,11 @@
 		// Get member ID into a session variable
 		$title = $row["title"];
 		$category = $row["category"];
+		$leusuario = $row["usuario"];
 		$upload_path = $row["upload_path"];
 		$storyline = $row["plot"];
-		$fecha = $row["date_added"];				
+		$fecha = $row["date_added"];	
+		$fechafin = $row["fecha"];				
 	}	
 	mysqli_close($conn);
 	
@@ -67,7 +69,7 @@
                   <form method="post" action="image_status.php" name="editProductForm">
                     <div class="form-group">
                       <label>Nombre</label>
-                      <input class="form-control" type="text" name="title" id="title" value="<?php echo $fecha; ?>"  />
+                      <input class="form-control" type="text" name="title" id="title" value="<?php echo $leusuario; ?>"  />
                     </div>
                     <div class="form-group">
                       <label>Categoria</label>
@@ -80,6 +82,12 @@
                         <option value="monteria">Programacion DJ's Monteria</option>
                         <option value="queestapasando">Que esta Pasando</option>
                       </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="text">Fecha de Finalizacion</label>
+                      <div class="input-group date" id="datetimepicker1">
+                        <input type="text" class="form-control" id="fecha" name="fecha" value="<?php echo $fechafin; ?>" />
+                        <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span> </div>
                     </div>
                     <div class="form-group">
                       <label>Anotaciones</label>
