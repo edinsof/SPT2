@@ -32,6 +32,7 @@
 		$fname = $row["firstname"];
 		$lname = $row["lastname"];		
 		$username = $row["username"];
+		$roles = $row["rol"];
 		$email = $row["email"];
 		$date_added = $row["date_added"];
 		$last_logged_in = $row["last_logged_in"];		
@@ -46,11 +47,19 @@
   <div id="page-wrapper">
     <div id="page-inner">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-pencil-square-o"></i> </span>
             <div class="text-box">
               <p class="main-text">Nombre</p>
               <p class="text-muted"><?php echo $fname." ".$lname; ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-back noti-box"> <span class="icon-box bg-color-red set-icon"> <i class="fa fa-users"></i> </span>
+            <div class="text-box">
+              <p class="main-text">Tipo</p>
+              <p class="text-muted"><?php echo $roles; ?></p>
             </div>
           </div>
         </div>

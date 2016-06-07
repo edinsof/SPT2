@@ -83,13 +83,6 @@
                   <input class="form-control" type="text" name="username" readonly id="username" value="<?php echo $username; ?>" />
                 </div>
                 <div class="form-group">
-                      <label>Tipo</label>
-                      <select class="form-control" name="rol">
-                        <option value="Usuario">Usuario</option>
-                        <option value="Administrador">Administrador</option>
-                      </select>
-                    </div>
-                <div class="form-group">
                   <label>Nombres</label>
                   <input class="form-control" type="text" name="fname" id="fname" value="<?php echo $fname; ?>" />
                 </div>

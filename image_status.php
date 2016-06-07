@@ -25,8 +25,7 @@
 			$fname = $_POST['fname'];
 			$fname = trim($fname);
 			$lname = $_POST['lname'];
-			$lname = trim($lname);	
-			$rol = $_POST['rol'];		
+			$lname = trim($lname);			
 			$username = $_POST['username'];
 			$email = $_POST['email'];	
 			$email = trim($email);			
@@ -34,7 +33,7 @@
 			//Connect To Database
 			include ('db/connect_to_db.php');
 			
-			$update = mysqli_query($conn,"UPDATE members SET firstname = '".$fname."', lastname = '".$lname."', username = '".$username."', rol = '".$rol."', email = '".$email."' 
+			$update = mysqli_query($conn,"UPDATE members SET firstname = '".$fname."', lastname = '".$lname."', username = '".$username."', email = '".$email."' 
 			WHERE userid = '".$id."'") or die(mysqli_error($conn));
 			
 			if ($update) 
