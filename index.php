@@ -90,7 +90,12 @@
 						if ($categoria == 'medellin') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -109,6 +114,11 @@
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
+						  
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -150,7 +160,12 @@
 						if ($categoria == 'pereira') {
 						//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -169,6 +184,10 @@
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion	
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -209,7 +228,12 @@
 						if ($categoria == 'caucasia') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -228,6 +252,10 @@
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -268,7 +296,12 @@
 						if ($categoria == 'sincelejo') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -287,6 +320,10 @@
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -327,7 +364,12 @@
 						if ($categoria == 'monteria') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -346,6 +388,10 @@
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias

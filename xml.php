@@ -44,7 +44,12 @@ echo '<?xml version="1.0"?><list>';
 						if ($categoria == 'medellin') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -63,6 +68,10 @@ echo '<?xml version="1.0"?><list>';
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -100,7 +109,12 @@ echo '<?xml version="1.0"?><list>';
 						if ($categoria == 'pereira') {
 						//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -119,6 +133,10 @@ echo '<?xml version="1.0"?><list>';
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion	
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -154,7 +172,12 @@ echo '<?xml version="1.0"?><list>';
 						if ($categoria == 'caucasia') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -173,6 +196,10 @@ echo '<?xml version="1.0"?><list>';
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -208,7 +235,12 @@ echo '<?xml version="1.0"?><list>';
 						if ($categoria == 'sincelejo') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -227,6 +259,10 @@ echo '<?xml version="1.0"?><list>';
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
@@ -262,7 +298,12 @@ echo '<?xml version="1.0"?><list>';
 						if ($categoria == 'monteria') {
 							//Rotacion
 					      $filename = $upload_path.$fullimage;
-						  $exif = exif_read_data($filename);
+						  //Extenciones
+						  $file_parts = pathinfo($filename);
+						  $file_parts['extension'];
+						  $cool_extensions = Array('jpg','jpeg');
+						  if (in_array($file_parts['extension'], $cool_extensions)){
+							  $exif = exif_read_data($filename);
 						  if(!empty($exif['Orientation'])) {
 							  switch($exif['Orientation']) {
 								  case 8:
@@ -281,6 +322,10 @@ echo '<?xml version="1.0"?><list>';
 						imagedestroy($source);
 						imagedestroy($rotate);
 						}
+							  } else {
+								  //nada
+								  }
+						  //Extenciones
 				//Rotacion
 				  //echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
 				  //Comparar dias
