@@ -41,7 +41,7 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h2>Subir Imagen</h2>
+          <h2>Agregar en lo que esta pasando</h2>
         </div>
       </div>
       <!-- /. ROW  -->
@@ -54,25 +54,18 @@
                 <div class="col-md-12">
                   <form method="post" action="image_status.php" name="newProductForm" enctype="multipart/form-data">
                     <div class="form-group" style="display:none;">
-                      <label>Nombre</label>
+                      <label>Nombre Usuario</label>
                       <input class="form-control" type="text" name="title" id="title" placeholder="<?php echo $fname; ?>_<?php echo date("Y-m-d"); ?>" readonly/>
                     </div>
-                    <div class="form-group">
-                      <label>Categoria</label>
-                      <select class="form-control" name="category">
-                        <option value="medellin">Programacion DJ's Medellin</option>
-                        <option value="pereira">Programacion DJ's Pereira</option>
-                        <option value="caucasia">Programacion DJ's Caucasia</option>
-                        <option value="sincelejo">Programacion DJ's Sincelejo</option>
-                        <option value="monteria">Programacion DJ's Monteria</option>
-                      </select>
+                    <div class="form-group" style="display:none;">
+                      <label>Queestapasando</label>
+                      <input class="form-control" name="category" value="queestapasando" readonly/>
                     </div>
-                    <div class="form-group">
-                      <label for="text">Fecha de Finalizacion</label>
-                      <div class="input-group date" id="datetimepicker1">
-                        <input type="text" class="form-control" id="fecha" name="fecha" />
-                        <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span> </div>
+                    <div class="form-group" style="display:none;">
+                      <label>Fecha</label>
+                      <input class="form-control" name="fecha" value="<?php echo date("Y-m-d"); ?>" readonly/>
                     </div>
+                   
                     <div class="form-group" style="display:none;">
                       <label>Anotaciones</label>
                       <input class="form-control" name="plot" value="<?php echo $fname; ?>_<?php echo $lname; ?>_<?php echo $_SERVER['REMOTE_ADDR']; ?>_<?php echo date("F-j-Y-H-i-s"); ?>" readonly/>

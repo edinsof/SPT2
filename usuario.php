@@ -19,7 +19,8 @@
 <body>
 <div class="container">
   <div class="row text-center ">
-    <div class="col-md-12"> <br />
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <img src="/apps/images/tclogo.png" width="100%" height="auto" />
       <br />
       <h2> SPT : Login</h2>
       <br />

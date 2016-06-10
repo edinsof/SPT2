@@ -29,6 +29,6 @@
 	$_SESSION['error'] = $msg;
 	$_SESSION['cat'] = $cat;
 	//Redirect back to URL 
-	header( 'refresh: 0; url='.$url);
+	header( 'refresh: 0; url=/apps/usuario');
 ?>
 

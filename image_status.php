@@ -155,13 +155,13 @@
 			//Connect To Database
 			include ('db/connect_to_db.php');
 			//Configuration - Your Options
-			$file_types_permitted = array('.jpg','.jpeg','.gif','.bmp','.png'); // These will be the types of file and will be checked.
+			$file_types_permitted = array('.jpg','.jpeg','.gif','.bmp','.png');
 			//New Thumb Sizes
-			$modwidth="300";
-			$modheight="100";
+			//$modwidth="300";
+			//$modheight="100";
 			
-			$filename = $_FILES['image']['name']; // Get the name of the file (including file extension).
-			$filetype = $_FILES['image']['type']; // Get the type of the file (including file extension).
+			$filename = $_FILES['image']['name'];
+			$filetype = $_FILES['image']['type'];
 			
 			if (!get_magic_quotes_gpc()) 
 			{

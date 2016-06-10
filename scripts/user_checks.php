@@ -38,10 +38,10 @@
 		//Store html code in variable when user is not logged in 
 		$navlinks2 = '<form action="login.php" method="post" name="LoginForm" onsubmit="return ValidateLoginForm();">
             <br />
-            <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+            <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
 			<input name="username" value="Username" type="text" class="form-control"/>
             </div>
-            <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+            <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 			<input name="password" value="Password" type="password" class="form-control"/>
             </div>
 			  <input type="hidden" name="url" value="'.$url.'" />					
