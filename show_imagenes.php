@@ -95,7 +95,7 @@
 						echo '<td>'.$categoria.'</td>';
 						echo '<td>'.$notas.'</td>';		
 						echo '<td><a href="'.$urlpatch.''.$urlimg.'" data-toggle="lightbox"><img src="'.$urlpatch.''.$urlimg.'" width="160" height="auto" alt="Img"></a></td>';		
-						echo '<td><a href="image_status.php?vid='.$pictureID.'&type=productdelete&url=/apps/show_imagenes.php"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>';			
+						echo '<td><a href="image_status?vid='.$pictureID.'&type=productdelete&url=/apps/show_imagenes"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>';			
 					echo '</tr>';
 				}
 				mysqli_close($conn);				

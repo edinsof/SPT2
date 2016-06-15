@@ -71,8 +71,8 @@
 					echo '<td>'.$primernombre.' '.$segnombre.'</td>';
 					echo '<td>'.$roles.'</td>';
 					echo '<td>'.$lsession.'</td>';
-					echo '<td><a href="edit_member_details.php?uid='.$userid.'&type=useredit"><img src="images/buttons/edit.png" alt="" width="35" height="35" /></a></td>';			
-					echo '<td><a href="image_status.php?id='.$userid.'&type=userdelete&username='.$username.'&url=/apps/show_members.php"><img src="images/buttons/delete.png" alt="" width="35" height="35" /></a></td>';			
+					echo '<td><a href="edit_member_details?uid='.$userid.'&type=useredit"><img src="images/buttons/edit.png" alt="" width="35" height="35" /></a></td>';			
+					echo '<td><a href="image_status?id='.$userid.'&type=userdelete&username='.$username.'&url=/apps/show_members"><img src="images/buttons/delete.png" alt="" width="35" height="35" /></a></td>';			
 				echo '</tr>';
 			}				
 			mysqli_close($conn);

@@ -20,15 +20,15 @@
 		//If the username is admin
 		if ($rol == 'Administrador')
 		{
-			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';
-			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=admin_profile.php"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';
+			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="admin_profile">Administrador</a> <a href="logout" class="btn btn-danger square-btn-adjust">Salir</a>';
+			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=admin_profile"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';
 		}
 		//else Do This
 		elseif ($rol != 'Administrador')
 		{
 			//Store html code in variable when user logged in 
-			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="member_profile.php">Administrador</a> <a href="logout.php" class="btn btn-danger square-btn-adjust">Salir</a>';
-			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=member_profile.php"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';			
+			$navlinks = '<a class="btn btn-danger square-btn-adjust" href="member_profile">Administrador</a> <a href="logout" class="btn btn-danger square-btn-adjust">Salir</a>';
+			$navlinks2 = '<meta http-equiv="refresh" content="1;URL=member_profile"><center><a class="btn btn-danger square-btn-adjust" href="·">Cargando STP</a></center>';			
 		}
 		
 	}
@@ -60,7 +60,7 @@
 		{
 			$usertype = "Registro";
 			//Store html code in variable when user is not logged in 
-			$userchoice = '<a href="register.php?type=register&url='.$url.'">' . $usertype . '</a>';					
+			$userchoice = '<a href="register?type=register&url='.$url.'">' . $usertype . '</a>';					
 		}
 	}
 	//If Session variable error is set
