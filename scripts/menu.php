@@ -5,7 +5,7 @@
 	//Plataformas HouseMedia 
 ?>		
 <nav class="navbar-default navbar-side" role="navigation">
-    <div class="sidebar-collapse">
+    <div class="sidebar-collapse collapse">
       <ul class="nav" id="main-menu">
       <?php
 	  $url  = $_GET['url'];
