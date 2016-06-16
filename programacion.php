@@ -159,9 +159,6 @@
 						}
 				//Rotacion	
 				  echo '<img src="'.$filename.'" width="100%" height="auto" style="image-orientation:from-image;"/><br>';
-				  
-				    
-
 				  } else {
 					  echo '';
 					  }
